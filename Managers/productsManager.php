@@ -1,8 +1,8 @@
 <?php
-    include "../db_connection.php";
+    include "./db_connection.php";
      //get all products TODO: Order by price?
      function getProducts($isSecondHand){
-        $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = 'isSecondHand'");
+        $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand'");
         return $query;
     }
     //add product to the database, $isSecondHand is either 0 or 1
