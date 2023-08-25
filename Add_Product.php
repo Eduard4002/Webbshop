@@ -1,6 +1,7 @@
 <?php
 // Include the database configuration
-include "Managers/productsManager.php";
+include_once "Managers/productsManager.php";
+
 if(isset($_POST['addProduct'])){
     // Get form data
     $productName = $_POST['name'];

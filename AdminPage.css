@@ -2,13 +2,10 @@
 
 h2 {
     text-align: center;
-
+    
 }
 
-label{
 
-
-}
 
 input[type=text], select {
     width: 75%;
@@ -46,21 +43,16 @@ input[type=file], select {
 }
 
 
-#image {
-    box-sizing: border-box;
-    width: 75%;
 
-}
 
 input[type=checkbox], select {
-    width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left: 12.5%;
+    margin-left: 49%;
 }
 
 input[type=number], select {
@@ -85,3 +77,4 @@ input[type=submit] {
     cursor: pointer;
     margin-left: 12.5%;
 }
+
