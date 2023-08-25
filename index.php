@@ -1,8 +1,11 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add a new product</title>
-    <link rel="stylesheet" href="AdminPage.css"
+    <link rel="stylesheet" href="AdminPage.css">
 </head>
 <body>
     <section>
