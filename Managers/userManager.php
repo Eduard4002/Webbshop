@@ -53,9 +53,15 @@
         $userID = getUserID($_POST['userName']);
         //check if user exists
        
-        //TODO check if username == admin & password == 1234
-        //Goto admin page to add productss
-        
+
+        // Check if username and password match
+    if ($_POST['userName'] === 'admin' && $_POST['passw'] === '1234') {
+        // Redirect to the admin page
+        header('Location: ../index.php');
+        exit; // Terminate the script after redirect
+    } 
+}
+
         //check if password and username match
         if(successfullLogin($_POST['userName'], $_POST['passw']) && $userID != 0){
             //there is currently a user in the database with that username AND the user entered correct credentials
@@ -64,5 +70,5 @@
         }else{
             header('location: ../login.php?invalidLog');
         }
-    }
+    
 ?>
