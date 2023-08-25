@@ -35,9 +35,26 @@
             <input type="submit" name="addProduct" value="Add Product">
         </form>
 
+        <h2> Delete Product </h2>
+        <form action="Remove_Product.php" method="post">
+            <label for="remove"> Remove Products: </label>
+            <br>
+
+              <?php
+                include_once "product_list.php"
+
+              ?>
+
+            <br><br>
+
+            <input type="submit" name="removeSelected" value="Remove Selected Products">
+        </form>
+
     </section> 
 
 
+    
+    
     <?php
         if(isset($_GET['itemAdded'])){
             echo "<p style='color:green'>Product has been added to the database</p>";
