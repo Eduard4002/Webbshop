@@ -1,0 +1,96 @@
+a {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Changed to border-box */
+    height: 100%;
+    border: none;
+    font-size: 30px;
+    font-family: Georgia;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.PopupWindow {
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: solid black 2px;
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    float: right;
+}
+
+.Button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Add space between buttons */
+    align-items: center;
+}
+
+.Button {
+    width: 90%; /* Adjust button width as needed */
+    padding: 10px; /* Padding for spacing within the button */
+    box-sizing: border-box;
+    border: none;
+    background-color: pink;
+    color: black;
+    font-size: 30px;
+    font-family: Georgia, serif;
+    text-align: center; /* Center button text */
+    border-radius: 15px;
+}
+
+.LogInWindow {
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: solid black 2px;
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    float: right;
+}
+
+.SignUpWindow {
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: solid black 2px;
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    float: right;
+}
+
+label {
+    font-size: 18px;
+
+}
+
+#Username {
+    width: 90%;
+    height: 20px; /* Adjust the height of the text field */
+    padding: 5px; /* Adjust padding for spacing inside the text field */
+    font-size: 18px; /* Adjust font size */
+    border: solid black 2px;
+    border-radius: 15px;
+    text-indent: 10px;
+}
+
+.CloseButton {
+    position: relative;
+    top: -22px;
+    right: -170px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
+    line-height: 1;
+    font-size: 36px;
+}
