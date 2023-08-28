@@ -43,33 +43,47 @@
 
     //Sign up
     if(isset($_POST['signUp'])){
-        if(getUserID($_POST['userName']) > 0) header('location: ../login.php?userExists');
-        
+        $userName = $_POST['userName'];
+        $email = $_POST['email'];
+        $passw = $_POST['passw'];
+        echo "ID: ".getUserID($userName);
+        if(getUserID($userName) != 0) {
+            header('location: ../login.php?userExists');
+            exit;   
+        }
+        if($userName === 'admin'){
+            header('location: ../login.php?DiffUsername');
+        }
         //add the user to the database
-        addNewUser($_POST['email'],$_POST['userName'],$_POST['passw']);
+        addNewUser($email,$userName,$passw);
         //Create a new cart that will be associated with the user
-        $userID = getUserID($_POST['userName']);
+        $userID = getUserID($userName);
         //set the current session ID to newly signed member
         createCart($userID);
-        $_SESSION['USER'] = $userID;
-        header('location: ../login.php?succ');
-    }else if(isset($_POST['logIn'])){
-        
+        //Auto login 
+         // Redirect to the login page with login parameters
+         header("location: userManager.php?logIn&userName=$userName&passw=$passw");
+    }else if(isset($_POST['logIn']) || isset($_GET['logIn'])){
+   
+        $userName = isset($_POST['userName']) ? $_POST['userName'] : (isset($_GET['userName']) ? $_GET['userName'] : '');
+        $passw = isset($_POST['passw']) ? $_POST['passw'] : (isset($_GET['passw']) ? $_GET['passw'] : '');
         //getUserID by username
-        $userID = getUserID($_POST['userName']);
+        $userID = getUserID($userName);
         //check if user exists
+       if(!($userID > 0)){
+           header('location: ../login.php?noUser');
+       }
        
-
         // Check if username and password match
-        if ($_POST['userName'] === 'admin' && $_POST['passw'] === '1234') {
+        if ($userName === 'admin' && $passw === '1234') {
             // Redirect to the admin page
             header('Location: ../index.php');
             exit; // Terminate the script after redirect
         } 
         //check if password and username match
-        if(successfullLogin($_POST['userName'], $_POST['passw']) && $userID != 0){
+        if(successfullLogin($userName, $passw)){
             //there is currently a user in the database with that username AND the user entered correct credentials
-            $_SESSION['USER'] = getUserID($_POST['userName']);
+            $_SESSION['USER'] = getUserID($userName);
             header('location: ../login.php?Logged');
         }else{
             header('location: ../login.php?invalidLog');

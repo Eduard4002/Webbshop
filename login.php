@@ -73,6 +73,8 @@
             echo "<p class = 'error'>Username already exists, please try another one</p>";
         }else if(isset($_GET["invalidLog"])){
             echo "<p class = 'error'>Invalid login</p>";
+        }else if(isset($_GET["noUser"])){
+            echo "<p class = 'error'>User not found</p>";
         }
     ?> 
     <h1>All Products</h1>
