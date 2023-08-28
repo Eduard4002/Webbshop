@@ -17,21 +17,22 @@
     function getAllProducts() {
         $query = mysqli_query(openConn(), "SELECT * FROM products");
         return $query;
-}
+    }
 
     //delete the product with product ID
-function deleteProduct($productID) {
-    $conn = openConn();
+    function deleteProduct($productID) {
+        $conn = openConn();
 
-    // Retrieve the image name before deleting the product
-    $query = mysqli_query($conn, "SELECT fileImage FROM products WHERE ID = '$productID'");
-    $row = mysqli_fetch_assoc($query);
-    $imageName = $row['fileImage'];
+        // Retrieve the image name before deleting the product
+        $query = mysqli_query($conn, "SELECT fileImage FROM products WHERE ID = '$productID'");
+        $row = mysqli_fetch_assoc($query);
+        $imageName = $row['fileImage'];
 
-    // Delete the image file from the res folder on the server
-    $imagePath = $imageName;
-    if (file_exists($imagePath)) {
-        unlink($imagePath); // This deletes the image file
+        // Delete the image file from the res folder on the server
+        $imagePath = $imageName;
+        if (file_exists($imagePath)) {
+            unlink($imagePath); // This deletes the image file
+        }
     }
 
     function getCartID($userID){
@@ -64,7 +65,9 @@ function deleteProduct($productID) {
 
     if(isset($_POST['addToCart'])){
         $productID = $_POST['productID'];
-        if(!isset($_SESSION['USER'])) header('location: ../login.php?login');
+        if(!isset($_SESSION['USER'])){
+            header('location: ../login.php?login');  
+        } 
         addProductToCart($_SESSION['USER'], $productID);
         header('location: ../login.php?itemAddedToCart');
     }

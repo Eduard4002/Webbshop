@@ -47,7 +47,6 @@
                 <h1>Sign up</h1>
                 <form  action='Managers/userManager.php' method='post'>
 
-                    <label for='firstName' required>Full Name: </label><input type='text' name='firstName' placeholder='First Name'><input type='text' name='lastName' placeholder='Last Name'><br>
                     <label for='email' required>Email: </label><p><input type='email' name='email'></p>
                     <label for='userName' required>Username: </label><p><input type='text' name='userName' placeholder='Username'></p>
                     <label for='password' required>Password: </label><p><input type='password' name='passw' placeholder='Password'></p>

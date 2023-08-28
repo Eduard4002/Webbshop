@@ -31,7 +31,7 @@
             $this->model = $model;
         }
         public function message(){
-            return "my color car is a " .$this->color . " " . $this->model
+            return "my color car is a " .$this->color . " " . $this->model;
          }
 
 

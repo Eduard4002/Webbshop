@@ -1,4 +1,4 @@
-CREATE TABLE users(ID int PRIMARY KEY AUTO_INCREMENT, fName varchar(10), lName varchar(10), email varchar(30), userName varchar(20), passw varchar(60));
+CREATE TABLE users(ID int PRIMARY KEY AUTO_INCREMENT, email varchar(30), userName varchar(20), passw varchar(60));
 CREATE TABLE products(ID int PRIMARY KEY AUTO_INCREMENT, fileImage varchar(70),name varchar(20), price int, info varchar(255), secondHand bit );
 CREATE TABLE carts (cartID int PRIMARY KEY AUTO_INCREMENT,userID int);
 CREATE TABLE cart_items (cartItemID int PRIMARY KEY AUTO_INCREMENT,cartID int,productID int,quantity int);
