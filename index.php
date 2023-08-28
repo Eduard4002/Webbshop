@@ -32,6 +32,13 @@
             <input type="submit" name="addProduct" value="Add Product">
         </form>
 
+        <?php
+        if(isset($_GET['itemAdded']) && isset($_GET['productName'])){
+            $productName = $_GET['productName'];
+            echo "<p style='color:green'>$productName has been added to the database</p>";
+        }
+        ?>
+
         <h2> Delete Product </h2>
         <form action="Remove_Product.php" method="post">
             <label for="remove"> Remove Products: </label>
@@ -46,17 +53,18 @@
 
             <input type="submit" name="removeSelected" value="Remove Selected Products">
         </form>
-
+        <?php
+        if (isset($_GET['productsRemoved']) && isset($_GET['productName'])) {
+            $productName = $_GET['productName'];
+            echo "<p style='color:red'>$productName has been removed from the database</p>";
+        }
+        ?>
     </section> 
 
 
     
     
-    <?php
-        if(isset($_GET['itemAdded'])){
-            echo "<p style='color:green'>Product has been added to the database</p>";
-        }
-    ?>
+    
     
     <script>
         function toggleStockField() {
