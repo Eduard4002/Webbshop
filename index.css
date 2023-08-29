@@ -3,6 +3,8 @@ body{
     background-color: #555;
     margin:0;
     padding:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 /* Navbar icons body */
 ul {
@@ -91,16 +93,20 @@ button {
     cursor: pointer;
 }
 
-.PopupWindow {
+.PopupWindow ,.LogInWindow, .SignUpWindow {
     box-sizing: border-box;
     border-radius: 15px;
     border: solid black 2px;
     width: 30%;
-    margin: 0 auto;
     padding: 20px;
     text-align: center;
     float: right;
+    position:absolute;
+    right: 10px;
+    z-index: 10000;
+    background-color: #2b2a2a9c;
 }
+
 
 .Button-container {
     display: flex;
@@ -121,29 +127,10 @@ button {
     text-align: center; /* Center button text */
     border-radius: 15px;
     cursor: pointer;
+    text-decoration: none;
+
 }
 
-.LogInWindow {
-    box-sizing: border-box;
-    border-radius: 15px;
-    border: solid black 2px;
-    width: 30%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    float: right;
-}
-
-.SignUpWindow {
-    box-sizing: border-box;
-    border-radius: 15px;
-    border: solid black 2px;
-    width: 30%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    float: right;
-}
 
 label {
     font-size: 18px;
@@ -180,3 +167,14 @@ color: white;
 }
 
 
+/*Most basic ass products style*/
+.products{
+    display:flex;
+    justify-content:space-around;
+    
+}
+.product-child{
+    border:1px solid black;
+    width:fit-content;
+    
+}

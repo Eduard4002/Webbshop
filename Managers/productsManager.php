@@ -12,7 +12,7 @@ function getAllProducts() {
     return $query;
 }
 function getProducts($isSecondHand){
-    $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand'");
+    $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand' AND stock > 0");
     return $query;
 }
 // Delete the product with product ID
@@ -66,9 +66,7 @@ function decreaseStock($productID){
     if($currStock != -1){
         $currStock--;
         $query = mysqli_query(openConn(), "UPDATE products SET stock = '$currStock' WHERE ID = '$productID'");
-        if($currStock == 0){
-            deleteProduct($productID);
-        }
+        
     }
 }
 function getCartID($userID){
@@ -84,9 +82,10 @@ function getCardIDFromUserID($userID){
 }
 function getProductsFromCart($userID){
     $cartID = getCardIDFromUserID($userID);
+   
     $cartItems = mysqli_query(openConn(), "SELECT productID FROM cart_items WHERE cartID = '$cartID'");
 
-    $products = mysqli_query(openConn(), "SELECT ci.cartItemID, p.fileImage, p.name, p.price, p.info, p.ID, ci.quantity 
+    $products = mysqli_query(openConn(), "SELECT ci.cartItemID, p.fileImage, p.name, p.price, p.info, p.ID,p.stock, ci.quantity 
     FROM cart_items ci
     JOIN products p ON ci.productID = p.ID
     WHERE ci.cartID = '$cartID'");
@@ -103,8 +102,12 @@ function addProductToCart($userID, $productID,$quantity = 1){
 
 if(isset($_POST['addToCart'])){
     $productID = $_POST['productID'];
-    if(!isset($_SESSION['USER'])) header('location: ../login.php?login');
-    addProductToCart($_SESSION['USER'], $productID);
-    header('location: ../login.php?itemAddedToCart');
+    $userID = $_POST['userID'];
+
+    if($userID === null) {
+        header('location: ../index.php?login');
+    }
+    addProductToCart($userID, $productID);
+    header('location: ../index.php?itemAddedToCart');
 }
 ?>

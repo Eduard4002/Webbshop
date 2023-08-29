@@ -38,40 +38,7 @@
         $query = mysqli_query(openConn(), "SELECT * FROM users WHERE ID = '$ID'");
         return mysqli_fetch_assoc($query)['userName'] ??= null;
     }
-    function getCartID($userID){
-        $query = mysqli_query(openConn(), "SELECT * FROM cart WHERE userID = '$userID'");
-        return mysqli_fetch_assoc($query)['cartID'] ??= null;
-    }
-    function createCart($userID){
-        $query = mysqli_query(openConn(), "INSERT INTO carts (userID) VALUES ($userID)");
-    }
-    function getCardIDFromUserID($userID){
-        $query = mysqli_query(openConn(), "SELECT cartID FROM carts WHERE userID = '$userID'");
-        return mysqli_fetch_assoc($query)['cartID'];
-    }
-    function getProductsFromCart($userID){
-        $cartID = getCardIDFromUserID($userID);
-        $cartItems = mysqli_query(openConn(), "SELECT productID FROM cart_items WHERE cartID = '$cartID'");
-
-        $products = mysqli_query(openConn(), "SELECT ci.cartItemID, p.fileImage, p.name, p.price, p.info, p.ID, ci.quantity 
-        FROM cart_items ci
-        JOIN products p ON ci.productID = p.ID
-        WHERE ci.cartID = '$cartID'");
-
-        return $products;
-    }
-    function addProductToCart($userID, $productID,$quantity = 1){
-        $cartID = getCardIDFromUserID($userID);
-        $query = mysqli_query(openConn(), "INSERT INTO cart_items VALUES (null,'$cartID','$productID','$quantity')");
-    }   
-    
-
-    if(isset($_POST['addToCart'])){
-        $productID = $_POST['productID'];
-        if(!isset($_SESSION['USER'])) header('location: ../login.php?login');
-        addProductToCart($_SESSION['USER'], $productID);
-        header('location: ../login.php?itemAddedToCart');
-    }
+   
     //Sign up
     if(isset($_POST['signUp'])){
         $userName = $_POST['userName'];

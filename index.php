@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,7 +80,7 @@
                     </defs>
                     </svg>
                     About us</a></li>
-                <li><a href="#" onclick="toggleMainPopup()"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a  onclick="toggleMainPopup()"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Vector (Stroke)">
                     <g filter="url(#filter0_i_26_339)">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21 5C17.3181 5 14.3333 7.68629 14.3333 11C14.3333 14.3137 17.3181 17 21 17C24.6819 17 27.6667 14.3137 27.6667 11C27.6667 7.68629 24.6819 5 21 5ZM9.88889 11C9.88889 5.47715 14.8635 1 21 1C27.1365 1 32.1111 5.47715 32.1111 11C32.1111 16.5228 27.1365 21 21 21C14.8635 21 9.88889 16.5228 9.88889 11ZM4.25437 27.9289C6.33811 26.0536 9.16426 25 12.1111 25H29.8889C32.8357 25 35.6619 26.0536 37.7456 27.9289C39.8294 29.8043 41 32.3478 41 35V39C41 40.1046 40.0051 41 38.7778 41C37.5505 41 36.5556 40.1046 36.5556 39V35C36.5556 33.4087 35.8532 31.8826 34.6029 30.7574C33.3527 29.6321 31.657 29 29.8889 29H12.1111C10.343 29 8.64731 29.6321 7.39707 30.7574C6.14682 31.8826 5.44444 33.4087 5.44444 35V39C5.44444 40.1046 4.44952 41 3.22222 41C1.99492 41 1 40.1046 1 39V35C1 32.3478 2.17063 29.8043 4.25437 27.9289Z" fill="#C99383"/>
@@ -100,7 +103,7 @@
             </ul>
         </div>
         </nav>
-        
+        <!--
         <footer>
         <div class="left-line">
             <p>Logout</p>
@@ -112,16 +115,15 @@
             <li>Number: +46700000000</li>
             <li>Email: retro.tech@example.com</li>
         </div>
-        </footer>
+        </footer>-->
 
         <div data-closable="true" class="PopupWindow" id="PopupWindow" style="display: none;">
             <div class="Button-container">
                 <a class="Button" onclick="LogIn()"> Log In </a>
                 <a class="Button" onclick="SignUp()"> Sign Up </a>
-                <a class="Button"> Shopping Cart 🛒 </a>
+                <a class="Button" href="cart.php"> Shopping Cart  </a>
             </div>
         </div>
-
         <div data-closable="true" class="LogInWindow" id="LogInWindow" style="display: none"> 
             <button class="CloseButton" onclick="Popup('PopupWindow')"> ⮾ </button>
             <h2> Log in :) </h2>
@@ -137,7 +139,6 @@
             </form>
             
         </div>   
-
         <div data-closable="true" class="SignUpWindow" id="SignUpWindow" style="display: none"> 
             
             <button class="CloseButton" onclick="Popup('PopupWindow')"> ⮾ </button>
@@ -157,6 +158,49 @@
             </form>
             
         </div>   
+        <main>
+
+            <div class = "products">
+                <?php
+                        include "Managers/productsManager.php";
+
+                    //Get all products that are second hand
+                    //"1"är för alla producter som är secondhand
+                    //"0" är för alla producter sominte är secondhand
+                    $query = getProducts(1);
+                    $userID = isset($_SESSION['USER']) ? $_SESSION['USER'] : null;
+                    if($query != null){
+                        while($row = mysqli_fetch_assoc($query)){
+                            $productID = $row['ID'];
+                            $filePath = 'res/'.$row['fileImage'].'.png';
+                            $name = $row['name'];
+                            $price = $row['price'];
+                            $info = $row['info'];
+                            $stock = $row['stock'];
+                            //jobba med koden nedan
+                            echo 
+                            "
+                                <div class = 'product-child'>
+                                    
+                                    <h1>$name</h1>
+                                    <h1>$stock</h1>
+                                    <p>$info</p>
+                                    <form action= 'Managers/productsManager.php' method='post'>
+                                        <button type='submit' name = 'addToCart'>BUY</button>
+                                        <input type='hidden' name = 'productID' value = '$productID'>
+                                        <input type='hidden' name = 'userID' value = '$userID'>
+                                    </form>
+                                </div>
+                            ";
+                        }
+                    }
+                    if(isset($_GET['login'])){
+                        echo "<p class='error'>You need to login before purchasing</p>";
+                    }
+                
+                ?>
+            </div>
+        </main>
 
     </body>
 </html>
