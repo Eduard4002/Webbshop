@@ -13,6 +13,21 @@ a {
     cursor: pointer;
 }
 
+button {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Changed to border-box */
+    height: 100%;
+    border: none;
+    font-size: 30px;
+    font-family: Georgia;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .PopupWindow {
     box-sizing: border-box;
     border-radius: 15px;

@@ -4,9 +4,9 @@
     //include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
 
     //adds a new user to the database
-    function addNewUser($fName, $lName, $email, $username, $password){
+    function addNewUser($email, $username, $password){
         $hashPassw = password_hash($password, PASSWORD_DEFAULT);
-        $query = mysqli_query(openConn(), "INSERT INTO users VALUES(null, '$fName', '$lName', '$email', '$username', '$hashPassw')");
+        $query = mysqli_query(openConn(), "INSERT INTO users VALUES(null,  '$email', '$username', '$hashPassw')");
     }
     //checks if the user logged in correctly
     function successfullLogin($username, $password){
@@ -46,13 +46,10 @@
         if(getUserID($_POST['userName']) == 1) header('location: ../login.php?userExists');
         
         //add the user to the database
-        addNewUser($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['userName'],$_POST['passw']);
-        //Create a new cart that will be associated with the user
-        $userID = getUserID($_POST['userName']);
+        addNewUser($_POST['email'],$_POST['userName'],$_POST['passw']);
         //set the current session ID to newly signed member
-        createCart($userID);
-        $_SESSION['USER'] = $userID;
-        header('location: ../login.php?succ');
+        $_SESSION['USER'] = getUserID($_POST['userName']);
+        header('location: ../popup.php?succ');
     }else if(isset($_POST['logIn'])){
         
         //getUserID by username

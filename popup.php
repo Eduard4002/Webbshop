@@ -39,19 +39,17 @@
         <h2> Sign up here :) </h2>
         <form action="Managers/userManager.php" method="POST">
             <label for="SignupEmail"> Email: </label> <br> 
-            <input type="text" id="Username" name = "email"required> <br> <br> <br>
+            <input type="text" id="Username" required> <br> <br> <br>
 
             <label for="SignupUsername"> Username: </label> <br> 
-            <input type="text" id="Username" name = "userName"required> <br> <br> <br>
+            <input type="text" id="Username" required> <br> <br> <br>
 
             <label for="SignupPassword"> Password: </label> <br>
-            <input type="password" id="Username" name = "passw"required> <br> <br> <br>
-            <button type="submit" class="Button" name="signUp"> Sign Up </button>
-
-            <div class="Button-container">
-            </div>
+            <input type="password" id="Username" required> <br> <br> <br>
         </form>
-        
+        <div class="Button-container">
+            <button type="submit" class="Button" name="signUp"> Sign Up </button>
+        </div>
     </div>   
 
 </body>
