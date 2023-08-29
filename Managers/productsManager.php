@@ -40,10 +40,13 @@ function getProductNamesString($productIDs) {
     $conn = openConn();
     $productNames = array();
 
-    foreach ($productIDs as $productId) {
-        $query = mysqli_query($conn, "SELECT name FROM products WHERE ID = '$productId'");
-        $row = mysqli_fetch_assoc($query);
-        $productNames[] = $row['name'];
+    if(isset($_POST['addToCart'])){
+        $productID = $_POST['productID'];
+        if(!isset($_SESSION['USER'])){
+            header('location: ../login.php?login');  
+        } 
+        addProductToCart($_SESSION['USER'], $productID);
+        header('location: ../login.php?itemAddedToCart');
     }
 
     closeConn($conn);

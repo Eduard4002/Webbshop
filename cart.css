@@ -1,0 +1,36 @@
+body{
+    margin:0;
+    padding:0;
+    overflow-y: scroll;
+}
+.error{
+    color:red;
+    width:fit-content;
+    margin:auto;
+    font-size:48px;
+}
+.products{
+    width:80%;
+    height:90vh;
+    margin: auto;
+    border-radius: 20px;
+}
+.product-child{
+    border:2px black solid;
+    width:80%;
+    height:30%;
+    margin:auto;
+    border-radius: 20px;
+    display: flex;
+}
+.product-child img{
+    height:100%;
+    width: 20%;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+
+}
+.product-child .product-Name{
+    padding-left: 40px;
+    margin: 0;
+}
