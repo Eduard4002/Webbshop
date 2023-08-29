@@ -1,8 +1,6 @@
 <?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
     session_start();
-    include "productsManager.php";
-    //include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
-
     //adds a new user to the database
     function addNewUser($email, $username, $password){
         $hashPassw = password_hash($password, PASSWORD_DEFAULT);
@@ -40,7 +38,40 @@
         $query = mysqli_query(openConn(), "SELECT * FROM users WHERE ID = '$ID'");
         return mysqli_fetch_assoc($query)['userName'] ??= null;
     }
+    function getCartID($userID){
+        $query = mysqli_query(openConn(), "SELECT * FROM cart WHERE userID = '$userID'");
+        return mysqli_fetch_assoc($query)['cartID'] ??= null;
+    }
+    function createCart($userID){
+        $query = mysqli_query(openConn(), "INSERT INTO carts (userID) VALUES ($userID)");
+    }
+    function getCardIDFromUserID($userID){
+        $query = mysqli_query(openConn(), "SELECT cartID FROM carts WHERE userID = '$userID'");
+        return mysqli_fetch_assoc($query)['cartID'];
+    }
+    function getProductsFromCart($userID){
+        $cartID = getCardIDFromUserID($userID);
+        $cartItems = mysqli_query(openConn(), "SELECT productID FROM cart_items WHERE cartID = '$cartID'");
 
+        $products = mysqli_query(openConn(), "SELECT ci.cartItemID, p.fileImage, p.name, p.price, p.info, p.ID, ci.quantity 
+        FROM cart_items ci
+        JOIN products p ON ci.productID = p.ID
+        WHERE ci.cartID = '$cartID'");
+
+        return $products;
+    }
+    function addProductToCart($userID, $productID,$quantity = 1){
+        $cartID = getCardIDFromUserID($userID);
+        $query = mysqli_query(openConn(), "INSERT INTO cart_items VALUES (null,'$cartID','$productID','$quantity')");
+    }   
+    
+
+    if(isset($_POST['addToCart'])){
+        $productID = $_POST['productID'];
+        if(!isset($_SESSION['USER'])) header('location: ../login.php?login');
+        addProductToCart($_SESSION['USER'], $productID);
+        header('location: ../login.php?itemAddedToCart');
+    }
     //Sign up
     if(isset($_POST['signUp'])){
         $userName = $_POST['userName'];
@@ -48,11 +79,11 @@
         $passw = $_POST['passw'];
         echo "ID: ".getUserID($userName);
         if(getUserID($userName) != 0) {
-            header('location: ../login.php?userExists');
+            header('location: ../index.php?userExists');
             exit;   
         }
         if($userName === 'admin'){
-            header('location: ../login.php?DiffUsername');
+            header('location: ../index.php?DiffUsername');
         }
         //add the user to the database
         addNewUser($email,$userName,$passw);
@@ -71,26 +102,26 @@
         $userID = getUserID($userName);
         //check if user exists
        if(!($userID > 0)){
-           header('location: ../login.php?noUser');
+           header('location: ../index.php?noUser');
        }
        
         // Check if username and password match
         if ($userName === 'admin' && $passw === '1234') {
             // Redirect to the admin page
-            header('Location: ../index.php');
+            header('Location: ../admin.php');
             exit; // Terminate the script after redirect
         } 
         //check if password and username match
         if(successfullLogin($userName, $passw)){
             //there is currently a user in the database with that username AND the user entered correct credentials
             $_SESSION['USER'] = getUserID($userName);
-            header('location: ../login.php?Logged');
+            header('location: ../index.php?Logged');
         }else{
-            header('location: ../login.php?invalidLog');
+            header('location: ../index.php?invalidLog');
         }
     }else if(isset($_POST['logOut'])){
         $_SESSION['USER'] = null;
-        header('location: ../login.php');
+        header('location: ../index.php');
     }
 
         

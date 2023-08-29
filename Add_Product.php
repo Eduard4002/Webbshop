@@ -7,7 +7,7 @@ if(isset($_POST['addProduct'])){
     $productName = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
-    //$stock = $_POST['stock'];
+    $stock = isset($_POST['stock']) ? $_POST['stock'] : "-1";
     $fileImage = $_POST['image'];
     $secondHand = $_POST['secondhand'];
 
@@ -25,13 +25,13 @@ if(isset($_POST['addProduct'])){
 
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
         echo "Image uploaded successfully.";
-        addProduct($targetFile,$productName,$price,$description,$secondHand);
+        addProduct($targetFile,$productName,$price,$description,$secondHand,$stock);
         
         // Redirect to the index page with a success message and the product name
-        header("location: index.php?itemAdded&productName=" . urlencode($productName));
+        header("location: admin.php?itemAdded");
 
     } else {
-        header('location: index.php?failed');
+        header('location: admin.php?failed');
     }
 }
 ?>
