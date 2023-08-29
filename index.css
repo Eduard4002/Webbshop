@@ -75,5 +75,21 @@ nav ul li {
     color: rgb(255, 255, 255); /* Adjust the color as needed */
 }
 
-
-
+/* css code for footer*/
+footer{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 150px;
+    border: #000000;
+    border-style: solid;
+    background-color: #000000;
+}
+.right-line {
+    color: #ffffff;
+}
+.left-line {
+    color: #ffffff;
+}
