@@ -11,8 +11,7 @@ if(isset($_POST['addProduct'])){
     $fileImage = $_POST['image'];
     $secondHand = $_POST['secondhand'];
 
-
-        // Image upload handling
+    // Image upload handling
     $targetDir = "res/"; // Directory where images will be stored
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -27,19 +26,12 @@ if(isset($_POST['addProduct'])){
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
         echo "Image uploaded successfully.";
         addProduct($targetFile,$productName,$price,$description,$secondHand);
-        header('location: index.php?itemAdded');
+        
+        // Redirect to the index page with a success message and the product name
+        header("location: index.php?itemAdded&productName=" . urlencode($productName));
 
     } else {
         header('location: index.php?failed');
     }
-
-    //Succesful
 }
-
-
-
-// Close database connection
-
-
-    
 ?>
