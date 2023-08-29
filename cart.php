@@ -1,4 +1,6 @@
-
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,8 +108,8 @@
             </nav>
     <main>
         <?php
-
             include_once "Managers/productsManager.php";
+
             //Get all items from cart from the current user
             if(!isset($_SESSION['USER'])){
                 echo "<p class='error'>You have to login to view cart</p>";
