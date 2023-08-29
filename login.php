@@ -87,6 +87,8 @@
     <div class = "products">
         <?php
             //Get all products that are second hand
+            //"1"är för alla producter som är secondhand
+            //"0" är för alla producter sominte är secondhand
             $query = getProducts(1);
 
             if($query != null){
@@ -96,8 +98,7 @@
                     $name = $row['name'];
                     $price = $row['price'];
                     $info = $row['info'];
-                    $stock = $row['stock'];
-                    
+                    //jobba med koden nedan
                     echo 
                     "
                         <div class = 'product-child'>
