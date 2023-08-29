@@ -30,7 +30,9 @@
 </head>
 <body>
     <?php
+
     include "Managers/userManager.php";
+    include "Managers/productsManager.php";
         if(isset($_SESSION['USER'])){
             $name = getUserByID($_SESSION['USER']);
             //User currently logged in
@@ -90,13 +92,14 @@
                     $name = $row['name'];
                     $price = $row['price'];
                     $info = $row['info'];
+                    $stock = $row['stock'];
                     
                     echo 
                     "
                         <div class = 'product-child'>
                             
                             <h1>$name</h1>
-                            <h1>$price</h1>
+                            <h1>$stock</h1>
                             <p>$info</p>
                             <form action= 'Managers/productsManager.php' method='post'>
                                 <button type='submit' name = 'addToCart'>BUY</button>
@@ -112,41 +115,7 @@
         
         ?>
     </div>
-    <h1>Your cart</h1>
-    <div class="products">
-        <?php
-            //Get all items from cart from the current user
-            if(!isset($_SESSION['USER'])){
-                echo "<p class='error'>You have to login to view cart</p>";
-                exit;
-            }
-            $query = getProductsFromCart($_SESSION['USER']);
-
-            if($query != null){
-                while($row = mysqli_fetch_assoc($query)){
-                    $productID = $row['ID'];
-                    $filePath = 'res/'.$row['fileImage'].'.png';
-                    $name = $row['name'];
-                    $price = $row['price'];
-                    $info = $row['info'];
-                    
-                    echo 
-                    "
-                        <div class = 'product-child'>
-                            <h1>$name</h1>
-                            <h1>$price</h1>
-                            <p>$info</p>
-                            <form action= 'Managers/productsManager.php' method='post'>
-                                <button type='submit' name = 'addToCart'>BUY</button>
-                                <input type='hidden' name = 'productID' value = '$productID'>
-                            </form>
-                        </div>
-                    ";
-                }
-            }
-        
-        ?>
-    </div>
+    <a href="cart.php">View cart</a>
     
 </body>
 </html>

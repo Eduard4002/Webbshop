@@ -1,8 +1,6 @@
 <?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
     session_start();
-    include "productsManager.php";
-    //include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
-
     //adds a new user to the database
     function addNewUser($email, $username, $password){
         $hashPassw = password_hash($password, PASSWORD_DEFAULT);
@@ -77,7 +75,7 @@
         // Check if username and password match
         if ($userName === 'admin' && $passw === '1234') {
             // Redirect to the admin page
-            header('Location: ../index.php');
+            header('Location: ../admin.php');
             exit; // Terminate the script after redirect
         } 
         //check if password and username match

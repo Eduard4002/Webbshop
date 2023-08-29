@@ -10,7 +10,7 @@ if (isset($_POST['removeSelected'])) {
         foreach ($productsToRemove as $productId) {
             $removedProductName = deleteProduct($productId);
             // Display a message with the removed product name
-            header('location: index.php?productsRemoved&productName=' . $removedProductName);
+            header('location: admin.php');
         }
     }
 }
