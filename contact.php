@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" type="text/css" href="contact.css">
     </head>
     <body>
         <script src="popup.js"> </script>
@@ -37,7 +37,7 @@
                     </defs>
                     </svg>
                     Products</a></li>
-                <li><a href="contact.php"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="#"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Vector">
                     <g filter="url(#filter0_i_16_275)">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21 5C16.7565 5 12.6869 6.68571 9.68629 9.68629C6.68571 12.6869 5 16.7565 5 21V33C5 34.1046 4.10457 35 3 35C1.89543 35 1 34.1046 1 33V21C1 15.6957 3.10714 10.6086 6.85786 6.85786C10.6086 3.10714 15.6957 1 21 1C26.3043 1 31.3914 3.10714 35.1421 6.85786C38.8929 10.6086 41 15.6957 41 21V33C41 34.1046 40.1046 35 39 35C37.8954 35 37 34.1046 37 33V21C37 16.7565 35.3143 12.6869 32.3137 9.68629C29.3131 6.68571 25.2435 5 21 5Z" fill="#C99383"/>
@@ -101,49 +101,22 @@
         </div>
         </nav>
 
-        <div data-closable="true" class="PopupWindow" id="PopupWindow" style="display: none;">
-            <div class="Button-container">
-                <a class="Button" onclick="LogIn()"> Log In </a>
-                <a class="Button" onclick="SignUp()"> Sign Up </a>
-                <a class="Button"> Shopping Cart 🛒 </a>
-            </div>
+        <div class="ContactForm"> 
+            <form>
+                <label for="email"> Email: </label>
+                <input type="email" id="Username" name = "email" required> <br> <br> 
+
+                <label for="Username"> Username: </label>
+                <input type="text" id="Username" name = "userName" required> <br> <br> 
+
+                <label for="PhoneNumber"> Phone Number: </label>
+                <input type="number" id="Username" name = "phoneNumber" required> <br> <br> 
+
+                <label for="Message"> Type in your message: </label>
+                <textarea  name = "yourMessage" required> </textarea>
+
+                <button type="submit" class="Button" name="signUp"> Send </button>
+                
+            </form>
+
         </div>
-
-        <div data-closable="true" class="LogInWindow" id="LogInWindow" style="display: none"> 
-            <button class="CloseButton" onclick="Popup('PopupWindow')"> ⮾ </button>
-            <h2> Log in :) </h2>
-            <form action="Managers/userManager.php" method="POST">
-                <label for="LoginUsername"> Username: </label> <br> 
-                <input type="text" id="Username" name = "userName" required> <br> <br> <br>
-
-                <label for="LoginPassword"> Password: </label> <br>
-                <input type="password" id="Username" name = "passw" required> <br> <br> <br>
-                <div class="Button-container">
-                    <button type="submit" class="Button" name="logIn"> Log In </button>
-                </div>
-            </form>
-            
-        </div>   
-
-        <div data-closable="true" class="SignUpWindow" id="SignUpWindow" style="display: none"> 
-            
-            <button class="CloseButton" onclick="Popup('PopupWindow')"> ⮾ </button>
-            <h2> Sign up here :) </h2>
-            <form action="Managers/userManager.php" method="POST">
-                <label for="SignupEmail"> Email: </label> <br> 
-                <input type="email" id="Username" name = "email" required> <br> <br> <br>
-
-                <label for="SignupUsername"> Username: </label> <br> 
-                <input type="text" id="Username" name = "userName" required> <br> <br> <br>
-
-                <label for="SignupPassword"> Password: </label> <br>
-                <input type="password" id="Username" name = "passw" required> <br> <br> <br>
-                <div class="Button-container">
-                    <button type="submit" class="Button" name="signUp"> Sign Up </button>
-                </div>
-            </form>
-            
-        </div>   
-
-    </body>
-</html>

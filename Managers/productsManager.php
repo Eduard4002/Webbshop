@@ -11,7 +11,10 @@ function getAllProducts() {
     $query = mysqli_query(openConn(), "SELECT * FROM products");
     return $query;
 }
-
+function getProducts($isSecondHand){
+    $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand'");
+    return $query;
+}
 // Delete the product with product ID
 function deleteProduct($productID) {
     $conn = openConn();

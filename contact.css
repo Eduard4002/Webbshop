@@ -182,3 +182,23 @@ color: white;
 
 }
 
+.ContactForm {
+    margin-top: 5%;
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+
+}
+
+textarea {
+    width: 90%;
+    height: 200px; /* Adjust the height of the text field */
+    padding: 5px; /* Adjust padding for spacing inside the text field */
+    font-size: 18px; /* Adjust font size */
+    border: solid black 2px;
+    border-radius: 15px;
+    text-indent: 10px;
+    resize: none;
+    margin: 8px 0;
+}
+
