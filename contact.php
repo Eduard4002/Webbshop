@@ -159,5 +159,28 @@
             </form>
 
         </div>
+            <div class="rev">
+            <p>Companny Email</p>
+            <p>retro.tech@example.com</p>
+            <p>number: +46700000000</p>
+            <p>
+                <div class="star">
+                    <img src="Design/star.png">
+                </div>
+        </div>
+        
+        <footer>
+            <div class="left-line">
+                <p>Logout</p>
+                <p>Terms of Service</p>
+                <p>Privacy</p>
+            </div>
+            <div class="right-line">
+                <p>Contact Info</p>
+                <li>Number: +46700000000</li>
+                <li>Email: retro.tech@example.com</li>
+            </div>
+        </footer>
+
     </body>
 </html>
