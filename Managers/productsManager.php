@@ -78,7 +78,7 @@ function createCart($userID){
 }
 function getCardIDFromUserID($userID){
     $query = mysqli_query(openConn(), "SELECT cartID FROM carts WHERE userID = '$userID'");
-    //return mysqli_fetch_assoc($query)['cartID'];
+    return mysqli_fetch_assoc($query)['cartID'];
 }
 function getProductsFromCart($userID){
     $cartID = getCardIDFromUserID($userID);

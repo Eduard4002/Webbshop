@@ -198,6 +198,8 @@
                                         <form action= 'Managers/productsManager.php' method='post'>
                                             <button type='submit' name = 'addToCart'>BUY</button>
                                             <input type='hidden' name = 'productID' value = '$productID'>
+                                            <input type='hidden' name = 'userID' value = '$userID'>
+
                                         </form>
                                         </div>
                                     </div>
