@@ -1,0 +1,31 @@
+html { font-size: 22px; }
+body { padding: 1rem; }
+
+@media only screen and (min-width: 500px) {
+    .gridcontainer{ grid-template-columns: repeat(2, 1fr); }
+      }
+@media only screen and (min-width: 1000px) {
+    .gridcontainer{ grid-template-columns: repeat(3, auto); }
+}
+@media only screen and (min-width: 1500px) {
+    .gridcontainer{ grid-template-columns: repeat(4, auto); }
+}
+
+.gridcontainer{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    padding: 5rem;
+    justify-content: center;
+    background-color: dodgerblue;
+}
+.item{
+    display: inline-block;
+    background-color: dodgerblue;
+    color: white;
+    height: 4rem;
+    text-align: center;
+}
+
+    
