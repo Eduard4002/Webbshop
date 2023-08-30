@@ -97,7 +97,11 @@ function addProductToCart($userID, $productID,$quantity = 1){
     $cartID = getCardIDFromUserID($userID);
     $query = mysqli_query(openConn(), "INSERT INTO cart_items VALUES (null,'$cartID','$productID','$quantity')");
     decreaseStock($productID);
-}   
+}
+function removeProductFromCart($userID, $productID){
+    $cartID = getCardIDFromUserID($userID);
+    $query = mysqli_query(openConn(), "DELETE FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
+}
 
 
 if(isset($_POST['addToCart'])){
@@ -109,5 +113,11 @@ if(isset($_POST['addToCart'])){
     }
     addProductToCart($userID, $productID);
     header('location: ../index.php?itemAddedToCart');
+}else if(isset($_POST['removeProductFromCart'])){
+    echo "Statement is called";
+    $productID = $_POST['productID'];
+    $userID = $_POST['userID'];
+    removeProductFromCart($userID, $productID);
+    header('location: ../cart.php');
 }
 ?>

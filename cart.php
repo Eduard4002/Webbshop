@@ -160,7 +160,7 @@
                 exit;
             }
             $query = getProductsFromCart($_SESSION['USER']);
-
+            $userID = $_SESSION['USER'];
             echo "<div class = 'cartProducts'>";
             if($query != null){
                 while($row = mysqli_fetch_assoc($query)){
@@ -179,7 +179,13 @@
                                 <h1 class='cartProducts-Price'>$price kr</h1>
                             </div>
                             <div class = 'cartProducts-action'>
-                                <img src='Design/delete-svgrepo-com.svg'>
+                                <form method='post' action = 'Managers/productsManager.php'>
+                                    <input type='hidden' name = 'productID' value = '$productID'>
+                                    <input type='hidden' name = 'userID' value = '$userID'>
+                                    <input type='hidden' name = 'submitValue' value = 'removeProductFromCart'>
+                                    <input type='image' src='Design/delete-svgrepo-com.svg' name='removeProductFromCart'>
+                                    
+                                </form>
                                 <h1>$quantity st</h1>
         
 
@@ -192,6 +198,7 @@
             }
             echo "</div>";
         ?>
+        <!--<img src='Design/delete-svgrepo-com.svg'>-->
     </main>
     
 </body>
