@@ -35,9 +35,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 100;
 }
-.container:hover{
-    height: 1000;
-}
+
 @keyframes example {
     from {height: 468};
     to {height: 700};
