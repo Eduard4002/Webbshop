@@ -1,8 +1,4 @@
-body{
-    margin:0;
-    padding:0;
-    overflow-y: scroll;
-}
+
 .error{
     color:red;
     width:fit-content;
@@ -17,13 +13,13 @@ body{
     border:2px black solid;
     width:80%;
     height:140px;
-    margin:auto;
     border-radius: 15px;
     display: flex;
     justify-content: start;
     color:white;
     background-color: #2b2a2a9c;
-    margin-bottom: 30px;
+    margin: 30px auto;
+    transition: 0.3s ease-in-out;
 }
 .cartProducts-child img{
     height:100%;
@@ -56,4 +52,8 @@ body{
 }
 .cartProducts-Price{
     font-size: 24px;
+}
+.cartProducts-child:hover{
+    transform: scale(1.05);
+    border:none;
 }
