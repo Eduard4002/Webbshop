@@ -1,5 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/Managers/productsManager.php";
     session_start();
     //adds a new user to the database
     function addNewUser($email, $username, $password){
@@ -58,6 +59,8 @@
         $userID = getUserID($userName);
         //set the current session ID to newly signed member
         createCart($userID);
+
+
         //Auto login 
          // Redirect to the login page with login parameters
          header("location: userManager.php?logIn&userName=$userName&passw=$passw");

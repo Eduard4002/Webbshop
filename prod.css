@@ -101,7 +101,10 @@ gör text responsiv
 .btncont button:hover{
     background-color: #4527A0;
 }
-
+.btn{
+    width: fit-content;
+    margin:auto;
+}
 ul{
     list-style: none;
     font-family: 'Inter', 'sans-serif';
