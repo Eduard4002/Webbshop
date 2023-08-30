@@ -20,11 +20,9 @@
             $name = getUserByID($_SESSION['USER']);
             //User currently logged in
             echo "
-            <h3>You are logged in as $name</h3>
-            <form action= 'Managers/userManager.php' method='post'>
-                <button type='submit' name = 'logOut'>LOG OUT</button>
-            </form'
-            ";
+            <h3>You are logged in as $name</h3> ";
+        
+           
         //If we are not logged in
         }else{
             echo 

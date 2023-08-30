@@ -5,6 +5,8 @@ body{
     padding:0;
     overflow-y:scroll;
     overflow-x:hidden;
+    width: 100%;
+    
 }
 /* Navbar icons body */
 ul {
@@ -16,6 +18,7 @@ nav {
 
     background-color: #555;
     width: 100%;
+
 }
 
 /* styling for navbar links */
@@ -31,7 +34,8 @@ nav ul li {
     list-style-type: none;
     height: 100%;
     padding: 10px; /* Adds padding to create space inside the box */
-    border: 2px solid black; /* Adds a border around the box */
+    border-bottom: 2px solid black; /* Adds a border around the box */
+    margin:0;
 }
 
 .icons ul li a img {
@@ -103,8 +107,10 @@ button {
     float: right;
     position:absolute;
     right: 10px;
+    margin-top: 20px;
     z-index: 10000;
     background-color: #2b2a2a9c;
+    
 }
 
 
@@ -116,7 +122,7 @@ button {
 }
 
 .Button {
-    width: 90%; /* Adjust button width as needed */
+    width: 100%; /* Adjust button width as needed */
     padding: 10px; /* Padding for spacing within the button */
     box-sizing: border-box;
     border: none;
@@ -131,6 +137,20 @@ button {
 
 }
 
+form {
+    width: 100%; /* Adjust button width as needed */
+     /* Padding for spacing within the button */
+    box-sizing: border-box;
+    border: none;
+    color: black;
+    font-size: 30px;
+    font-family: Georgia, serif;
+    text-align: center; /* Center button text */
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    margin:0;
+}
 
 label {
     font-size: 18px;
@@ -149,17 +169,17 @@ label {
 
 .CloseButton {
     position: relative;
-    top: -22px;
-    right: -170px;
+
+    
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    padding: 5px;
-    margin: 0;
     line-height: 1;
     font-size: 36px;
     color: white;
+    width: 50px;
+
 }
 
 h2 {
@@ -196,3 +216,4 @@ footer{
 .left-line {
     color: #ffffff;
 }
+

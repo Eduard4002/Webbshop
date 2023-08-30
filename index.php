@@ -81,7 +81,7 @@
                     </defs>
                     </svg>
                     About us</a></li>
-                <li><a  onclick="toggleMainPopup()"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a onclick="toggleMainPopup()"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Vector (Stroke)">
                     <g filter="url(#filter0_i_26_339)">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21 5C17.3181 5 14.3333 7.68629 14.3333 11C14.3333 14.3137 17.3181 17 21 17C24.6819 17 27.6667 14.3137 27.6667 11C27.6667 7.68629 24.6819 5 21 5ZM9.88889 11C9.88889 5.47715 14.8635 1 21 1C27.1365 1 32.1111 5.47715 32.1111 11C32.1111 16.5228 27.1365 21 21 21C14.8635 21 9.88889 16.5228 9.88889 11ZM4.25437 27.9289C6.33811 26.0536 9.16426 25 12.1111 25H29.8889C32.8357 25 35.6619 26.0536 37.7456 27.9289C39.8294 29.8043 41 32.3478 41 35V39C41 40.1046 40.0051 41 38.7778 41C37.5505 41 36.5556 40.1046 36.5556 39V35C36.5556 33.4087 35.8532 31.8826 34.6029 30.7574C33.3527 29.6321 31.657 29 29.8889 29H12.1111C10.343 29 8.64731 29.6321 7.39707 30.7574C6.14682 31.8826 5.44444 33.4087 5.44444 35V39C5.44444 40.1046 4.44952 41 3.22222 41C1.99492 41 1 40.1046 1 39V35C1 32.3478 2.17063 29.8043 4.25437 27.9289Z" fill="#C99383"/>
@@ -120,8 +120,31 @@
 
         <div data-closable="true" class="PopupWindow" id="PopupWindow" style="display: none;">
             <div class="Button-container">
-                <a class="Button" onclick="LogIn()"> Log In </a>
-                <a class="Button" onclick="SignUp()"> Sign Up </a>
+
+
+            <?php
+                    include_once "Managers/userManager.php";
+
+                    if (isset($_SESSION['USER'])){
+                        $userName = getUserByID($_SESSION['USER']);
+                        echo "<h2> Welcome $userName </h2>";
+                        echo "
+                        <form action='Managers/userManager.php' method='POST'>
+                            <div>
+                                <button type='submit' class='Button' name='logOut'> Log Out </button>
+                            </div>
+                        </form> ";
+
+                    } else {
+                        echo "
+                        <a class='Button' onclick='LogIn()'> Log In </a>
+                        <a class='Button' onclick='SignUp()' > Sign Up </a>
+                        ";
+
+                    }
+                ?>  
+
+            
                 <a class="Button" href="cart.php"> Shopping Cart  </a>
             </div>
         </div>
@@ -130,10 +153,10 @@
             <h2> Log in :) </h2>
             <form action="Managers/userManager.php" method="POST">
                 <label for="LoginUsername"> Username: </label> <br> 
-                <input type="text" id="Username" name = "userName" required> <br> <br> <br>
+                <input type="text" id="Username" name = "userName" required> <br>
 
                 <label for="LoginPassword"> Password: </label> <br>
-                <input type="password" id="Username" name = "passw" required> <br> <br> <br>
+                <input type="password" id="Username" name = "passw" required> <br> <br> 
                 <div class="Button-container">
                     <button type="submit" class="Button" name="logIn"> Log In </button>
                 </div>
@@ -146,13 +169,13 @@
             <h2> Sign up here :) </h2>
             <form action="Managers/userManager.php" method="POST">
                 <label for="SignupEmail"> Email: </label> <br> 
-                <input type="email" id="Username" name = "email" required> <br> <br> <br>
+                <input type="email" id="Username" name = "email" required> <br>
 
                 <label for="SignupUsername"> Username: </label> <br> 
-                <input type="text" id="Username" name = "userName" required> <br> <br> <br>
+                <input type="text" id="Username" name = "userName" required> <br> 
 
                 <label for="SignupPassword"> Password: </label> <br>
-                <input type="password" id="Username" name = "passw" required> <br> <br> <br>
+                <input type="password" id="Username" name = "passw" required> <br> <br>
                 <div class="Button-container">
                     <button type="submit" class="Button" name="signUp"> Sign Up </button>
                 </div>
@@ -163,7 +186,7 @@
 
             <div class = "products">
                 <?php
-                        include "Managers/productsManager.php";
+                        include_once "Managers/productsManager.php";
 
                     //Get all products that are second hand
                     //"1"är för alla producter som är secondhand
