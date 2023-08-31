@@ -1,7 +1,9 @@
 html { font-size: 22px; }
 body { padding: 1rem; }
-
-@media only screen and (min-width: 500px) {
+* {
+    box-sizing: border-box;
+}
+@media only screen and (max-width: 500px) {
     .gridcontainer{ grid-template-columns: repeat(2, 1fr); }
       }
 @media only screen and (min-width: 1000px) {
@@ -11,12 +13,20 @@ body { padding: 1rem; }
     .gridcontainer{ grid-template-columns: repeat(4, auto); }
 }
 
+/*
+@media only screen and (max-width: 768px)      när skärmen är mindre är 768 pixlar
+
+@media only screen and (min-width: 768px)      när skärmen är större än 768 pixlar
+*/
+
+
 .gridcontainer{
-    max-width: 1000px;
     margin: 0 auto;
     display: grid;
+    width: auto;
     gap: 1rem;
-    padding: 5rem;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto auto;
     justify-content: center;
     background-color: dodgerblue;
 }
