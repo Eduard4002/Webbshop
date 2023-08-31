@@ -1,7 +1,10 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
     include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/Managers/productsManager.php";
-    session_start();
+    
+    if (!isset($_SESSION)) {
+        session_start();
+      }
     //adds a new user to the database
     function addNewUser($email, $username, $password){
         $hashPassw = password_hash($password, PASSWORD_DEFAULT);
@@ -83,8 +86,12 @@
         } 
         //check if password and username match
         if(successfullLogin($userName, $passw)){
+            
             //there is currently a user in the database with that username AND the user entered correct credentials
             $_SESSION['USER'] = getUserID($userName);
+
+            echo "Name: ".$userName;
+    
             header('location: ../index.php?Logged');
         }else{
             header('location: ../index.php?invalidLog');
