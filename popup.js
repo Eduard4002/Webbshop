@@ -18,6 +18,7 @@ function Popup(elementID) {
 
 function toggleMainPopup() {
     var x = document.getElementById("PopupWindow");
+    console.log(x.dataset.closable);
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -27,7 +28,10 @@ function toggleMainPopup() {
 
 
 function LogIn() {
+
     Popup("LogInWindow"); // Call Popup function with the ID
+
+ 
 }
 
 function closePopup(elementID) {
@@ -38,4 +42,14 @@ function closePopup(elementID) {
 
 function SignUp() {
     Popup("SignUpWindow"); // Call Popup function with the ID
+}
+
+function MobilePopup() {
+    closeAllElements();
+    var x = document.getElementById("MobileNav");
+    if (x.style.display === "none") {
+        x.style.display = "flex";
+    } else {
+        x.style.display = "none";
+    }
 }
