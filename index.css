@@ -210,3 +210,8 @@ footer{
     color: #ffffff;
 }
 
+@media only screen and (max-width: 710px){
+    .navbar-links{
+        display: none;
+    }
+}
