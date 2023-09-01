@@ -56,7 +56,7 @@ nav ul li {
     
 }
 /* this code is for the logo styling */
-.logo img {
+.logo svg {
     width: 150px;
     height: fit-content;
     margin-left: 15px;
