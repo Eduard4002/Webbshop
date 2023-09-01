@@ -123,7 +123,7 @@ ul{
     font-family: 'Inter', 'sans-serif';
     font-weight: 200;
 }
-li::before{
+#uli li::before{
     display: inline-block;
     width: 2rem;
     content: "\2756";

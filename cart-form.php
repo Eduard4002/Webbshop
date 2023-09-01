@@ -299,19 +299,19 @@ if (!isset($_SESSION)) {
     </label>
     <label>
       <span>State / County <span class="required">*</span></span>
-      <input type="text" name="city"> 
+      <input type="text" name="state_county"> 
     </label>
     <label>
       <span>Postcode / ZIP <span class="required">*</span></span>
-      <input type="text" name="city"> 
+      <input type="number" name="postcode_zip"> 
     </label>
     <label>
       <span>Phone <span class="required">*</span></span>
-      <input type="tel" name="city"> 
+      <input type="tel" name="phone"> 
     </label>
     <label>
       <span>Email Address <span class="required">*</span></span>
-      <input type="email" name="city"> 
+      <input type="email" name="email"> 
     </label>
     <input type="hidden" name = "place-order">
   </form>
@@ -324,7 +324,7 @@ if (!isset($_SESSION)) {
         Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
     </p>
     <div>
-      <input type="radio" name="dbt" value="cd"> Cash on Delivery
+      <input type="radio" name="dbt" value="cd"> NFT
     </div>
     <div>
       <input type="radio" name="dbt" value="cd"> Paypal <span>
