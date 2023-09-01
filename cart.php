@@ -163,73 +163,78 @@
 
             $query = getProductsFromCart($_SESSION['USER']);
             $userID = $_SESSION['USER'];
-            echo "<div class='mainSec'>";
+            if($query != null){
+                echo "<div class='mainSec'>";
                 echo "<div class = 'cartProducts'>";
-                if($query != null){
-                    while($row = mysqli_fetch_assoc($query)){
-                        $productID = $row['ID'];
-                        $filePath = $row['fileImage'];
-                        $name = $row['name'];
-                        $price = $row['price'];
-                        $quantity = $row['quantity'];
+                
+                while($row = mysqli_fetch_assoc($query)){
+                    $productID = $row['ID'];
+                    $filePath = $row['fileImage'];
+                    $name = $row['name'];
+                    $price = $row['price'];
+                    $quantity = $row['quantity'];
 
-                        $itemPrice = $row['price'] * $row['quantity'];
-                        $totalPrice += $itemPrice;
-                        
-                        echo 
-                        "
-                            <div class = 'cartProducts-child'>
-                                <img src= '$filePath'>
-                                <div class = 'cartProducts-info'>
-                                    <h1 class='cartProducts-Name'>$name</h1>
-                                    <h1 class='cartProducts-Price'>$price kr</h1>
-                                </div>
-                                <div class = 'cartProducts-action'>
-                                    <form method='post' action = 'Managers/removeProductFromCart.php'>
+                    $itemPrice = $row['price'] * $row['quantity'];
+                    $totalPrice += $itemPrice;
+                    
+                    echo 
+                    "
+                        <div class = 'cartProducts-child'>
+                            <img src= '$filePath'>
+                            <div class = 'cartProducts-info'>
+                                <h1 class='cartProducts-Name'>$name</h1>
+                                <h1 class='cartProducts-Price'>$price kr</h1>
+                            </div>
+                            <div class = 'cartProducts-action'>
+                                <form method='post' action = 'Managers/removeProductFromCart.php'>
+                                    <input type='hidden' name = 'productID' value = '$productID'>
+                                    <input type='hidden' name = 'userID' value = '$userID'>
+                                    <input type='image' src='Design/delete-svgrepo-com.svg' >
+                                    
+                                </form>
+                                
+
+                                <div class = 'cartProducts-quantity'>
+                                    <form method='post' action = 'Managers/productsManager.php'>
                                         <input type='hidden' name = 'productID' value = '$productID'>
-                                        <input type='hidden' name = 'userID' value = '$userID'>
-                                        <input type='image' src='Design/delete-svgrepo-com.svg' >
-                                        
+                                        <input type='hidden' name = 'userID' value = '$userID'> 
+                                        <button type='submit' name = 'decreaseQuantity'>-</button>
+                                
                                     </form>
-                                    
-
-                                    <div class = 'cartProducts-quantity'>
-                                        <form method='post' action = 'Managers/productsManager.php'>
-                                            <input type='hidden' name = 'productID' value = '$productID'>
-                                            <input type='hidden' name = 'userID' value = '$userID'> 
-                                            <button type='submit' name = 'decreaseQuantity'>-</button>
-                                    
-                                        </form>
-                                        <h1>$quantity</h1>
-                                        <form method='post' action = 'Managers/productsManager.php'>
-                                            
-                                            <input type='hidden' name = 'productID' value = '$productID'>
-                                            <input type='hidden' name = 'userID' value = '$userID'> 
-                                            <button type='submit' name = 'increaseQuantity'>+</button>
-                                                                        
-                                        </form>
-                                    </div>
-                                    
-            
-
+                                    <h1>$quantity</h1>
+                                    <form method='post' action = 'Managers/productsManager.php'>
+                                        
+                                        <input type='hidden' name = 'productID' value = '$productID'>
+                                        <input type='hidden' name = 'userID' value = '$userID'> 
+                                        <button type='submit' name = 'increaseQuantity'>+</button>
+                                                                    
+                                    </form>
                                 </div>
-
+                                
+        
 
                             </div>
-                        ";
-                    }
+
+
+                        </div>
+                    ";
                 }
+                
                 echo "</div>";
                 echo "
                 <div class = 'action'>
                     <h1>$totalPrice kr</h1>
-                    <form method='post' action = 'cart-form.html'>                
-                        <button type='submit' name = 'buy'>BUY</button>                                          
+                    <form method='post' action = 'cart-form.php'>                
+                        <button type='submit' name = 'buy'>Purchase</button>                                          
                     </form>
                 </div>";
 
-            echo "</div>";
+                echo "</div>";
 
+            }else{
+                
+            }
+            
         ?>
         <!--<img src='Design/delete-svgrepo-com.svg'>-->
     </main>

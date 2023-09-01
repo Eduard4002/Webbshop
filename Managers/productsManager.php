@@ -90,7 +90,11 @@ function getProductsFromCart($userID){
     JOIN products p ON ci.productID = p.ID
     WHERE ci.cartID = '$cartID'");
 
-    return $products;
+    if(mysqli_num_rows($products) == 0){
+        return null;
+    }else{
+        return $products;
+    }
 }
 
 

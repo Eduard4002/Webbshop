@@ -3,7 +3,9 @@
 body{
   background: url('http://all4desktop.com/data_images/original/4236532-background-images.jpg');
   font-family: 'Roboto Condensed', sans-serif;
-  color: #262626;
+  color: white;
+  background-color: #555;
+
   margin: 5% 0;
 }
 .container{
@@ -22,7 +24,8 @@ body{
 .d-flex{
   display: flex;
   flex-direction: row;
-  background: #f6f6f6;
+  background-color: #2b2a2a9c;
+
   border-radius: 0 0 5px 5px;
   padding: 25px;
 }
@@ -33,14 +36,13 @@ form{
   flex: 2;
 }
 .title{
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #70EAFF));
-  background: -moz-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: -ms-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: -o-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+  
   border-radius:5px 5px 0 0 ;
   padding: 20px;
-  color: #f6f6f6;
+}
+.title h2{
+  color: #C99383;
+  font-size: 42px;
 }
 h2{
   margin: 0;
@@ -52,7 +54,7 @@ h2{
 label, table{
   display: block;
   margin: 15px;
-  color:black;
+  color:white;
 }
 label>span{
   float: left;
@@ -68,9 +70,10 @@ input[type="text"], input[type="tel"], input[type="email"], select
   margin-bottom: 10px;
   border: 1px solid #dadada;
   color: #888;
+  border-radius: 5px;
 }
 select{
-  width: 72%;
+  width: 73%;
   height: 45px;
   padding: 5px 10px;
   margin-bottom: 10px;
@@ -119,12 +122,12 @@ button{
   padding: 10px;
   border: none;
   border-radius: 30px;
-  background: #52ad9c;
+  background: #C99383;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
 }
 button:hover{
   cursor: pointer;
-  background: #428a7d;
+  background: #916b5f;
 }

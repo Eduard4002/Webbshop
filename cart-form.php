@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,12 +11,13 @@
         <link rel="stylesheet" href="cart-form.css">
     </head>
     <body>
+
     <div class="container">
   <div class="title">
       <h2>Product Order Form</h2>
   </div>
 <div class="d-flex">
-  <form action="" method="">
+  <form action="Managers/PDFCreate.php" method="POST" id = "order-form">
     <label>
       <span class="fname">First Name <span class="required">*</span></span>
       <input type="text" name="fname">
@@ -306,6 +313,7 @@
       <span>Email Address <span class="required">*</span></span>
       <input type="email" name="city"> 
     </label>
+    <input type="hidden" name = "place-order">
   </form>
   <div class="Yorder">
     
@@ -323,7 +331,7 @@
       <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
       </span>
     </div>
-    <button type="button">Place Order</button>
+    <button type="submit" form = "order-form" >Place Order</button>
   </div><!-- Yorder -->
  </div>
 </div>
