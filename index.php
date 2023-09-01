@@ -105,19 +105,6 @@
         </div>
         </nav>
         
-        <footer>
-            <div class="left-line">
-                <p>Logout</p>
-                <p>Terms of Service</p>
-                <p>Privacy</p>
-            </div>
-            <div class="right-line">
-                <p>Contact Info</p>
-                <li>Number: +46700000000</li>
-                <li>Email: retro.tech@example.com</li>
-            </div>
-        </footer>
-
         <div data-closable="true" class="PopupWindow" id="PopupWindow" style="display: none;">
             <div class="Button-container">
 
@@ -182,6 +169,20 @@
             </form>
             
         </div>   
+        <div class="sticky">
+        <footer>
+            <div class="left-line">
+                <p>Logout</p>
+                <p>Terms of Service</p>
+                <p>Privacy</p>
+            </div>
+            <div class="right-line">
+                <p>Contact Info</p>
+                <li>Number: +46700000000</li>
+                <li>Email: retro.tech@example.com</li>
+            </div>
+        </footer>
+                </div>
         <main>
 
             <div class = "products">
