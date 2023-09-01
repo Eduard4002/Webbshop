@@ -236,7 +236,7 @@
         </div>   
         <main>
 
-            <div class = "products">
+            <div class = "gridcont">
                 <?php
                         include_once "Managers/productsManager.php";
 
