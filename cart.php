@@ -109,8 +109,27 @@
         </nav>
         <div data-closable="true" class="PopupWindow" id="PopupWindow" style="display: none;">
             <div class="Button-container">
-                <a class="Button" onclick="LogIn()"> Log In </a>
-                <a class="Button" onclick="SignUp()"> Sign Up </a>
+                <?php
+                        include_once "Managers/userManager.php";
+
+                        if (isset($_SESSION['USER'])){
+                            $userName = getUserByID($_SESSION['USER']);
+                            echo "<h2> Welcome $userName </h2>";
+                            echo "
+                            <form action='Managers/userManager.php' method='POST'>
+                                <div>
+                                    <button type='submit' class='Button' name='logOut'> Log Out </button>
+                                </div>
+                            </form> ";
+
+                        } else {
+                            echo "
+                            <a class='Button' href='login.php'> Log In </a>
+                            <a class='Button' href='signup.php' > Sign Up </a>
+                            ";
+
+                        }
+                    ?>  
                 <a class="Button" href="cart.php"> Shopping Cart  </a>
             </div>
         </div>

@@ -94,12 +94,17 @@
     
             header('location: ../index.php?Logged');
         }else{
-            header('location: ../index.php?invalidLog');
+            header('location: ../login.php?invalidLog=1');
+            
+        
         }
     }else if(isset($_POST['logOut'])){
         $_SESSION['USER'] = null;
         header('location: ../index.php');
     }
+    
+    
+
 
         
     

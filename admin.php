@@ -6,9 +6,11 @@
 <head>
     <title>Add a new product</title>
     <link rel="stylesheet" href="AdminPage.css">
+    <link rel="stylesheet" href="prod.css">
 </head>
 <body>
     <section>
+        <a href="index.php"> ⮜ Back to Home Page </a>
         <h2>Add New Product</h2>
         <form action="Add_Product.php" method="post" enctype="multipart/form-data">
 
@@ -32,7 +34,7 @@
             <label for="price">Price:</label><br />
             <input type="number" id="price" name="price" step="0.01" required><br><br>
         
-            <input type="submit" name="addProduct" value="Add Product">
+            <input type="submit" class="Add" name="addProduct" value="Add Product">
         </form>
 
         <?php
@@ -54,7 +56,7 @@
 
             <br><br>
 
-            <input type="submit" name="removeSelected" value="Remove Selected Products">
+            <input type="submit" class="Remove" name="removeSelected" value="Remove Selected Products">
         </form>
         <?php
         if (isset($_GET['productsRemoved']) && isset($_GET['productName'])) {
