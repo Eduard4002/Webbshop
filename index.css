@@ -95,6 +95,8 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    background-color: #C99383;
+    color: white;
 }
 
 .PopupWindow ,.LogInWindow, .SignUpWindow {
@@ -126,8 +128,8 @@ button {
     padding: 10px; /* Padding for spacing within the button */
     box-sizing: border-box;
     border: none;
-    background-color: pink;
-    color: black;
+    background-color: #C99383;
+    color: white;
     font-size: 30px;
     font-family: Georgia, serif;
     text-align: center; /* Center button text */
@@ -137,7 +139,7 @@ button {
 
 }
 
-form {
+.LogInWindow form, .SignUpWindow form , .PopupWindow form {
     width: 100%; /* Adjust button width as needed */
      /* Padding for spacing within the button */
     box-sizing: border-box;
@@ -186,19 +188,6 @@ h2 {
 color: white;
 }
 
-
-/*Most basic ass products style*/
-.products{
-    display:flex;
-    justify-content:space-around;
-    
-}
-.product-child{
-    border:1px solid black;
-    width:fit-content;
-    
-}
-
 footer{
     display: flex;
     justify-content: space-around;
@@ -221,8 +210,3 @@ footer{
     color: #ffffff;
 }
 
-@media only screen and (max-width: 768px) {
-    .navbar-links{
-        display: none;
-    }
-}

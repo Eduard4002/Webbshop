@@ -1,0 +1,28 @@
+@media only screen and (min-width: 500px) {
+    .gridcont { 
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 1000px) {
+  .gridcont { 
+    grid-template-columns: auto auto;
+    justify-content: center;
+}
+  }
+@media only screen and (min-width: 1400px) {
+.gridcont { 
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
+}
+.gridcont{
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.item{
+    text-align: center;
+}
