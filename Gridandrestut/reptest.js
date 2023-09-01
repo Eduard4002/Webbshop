@@ -12,23 +12,58 @@ const textnode = document.createTextNode("Water");
 node.appendChild(textnode);
 
 
+//document.elementFromPoint(2, 2);              lär dig mer om 
+elem = document.elementFromPoint(2, 2);
+
+
+
+
 window.addEventListener("load", function(){
 */
+
+let x;
 window.addEventListener("load", function(){
     let containers = document.getElementsByClassName("container");
     //för att få tag på element
+    //document.getElementsByTagName("img");     returnerar en array med alla img
     let images = document.getElementsByTagName("img");
     console.log(images);
     console.log(containers[0]);
     //containers[0].setAttribute("class", "gridcont");
-    containers[0].style.marginLeft = "100px";
+    //containers[0].style.marginLeft = "100px";
     let x = document.createElement("div");
-    x.innerHTML = "hello there";
+    //x.innerHTML = "hello there";
     //appendChild kan användas för att att lägga till en child i ett element
-    containers[1].appendChild(x);
+    //containers[0].appendChild(x);
 
     //ett sätt att hantera events utan addEventListener
-    containers[2].hover = function(){alert("heyythere")}
+    // containers[2].hover = function(){alert("heyythere")}
+    
+    console.log(containers[0]);
+    for(let y = 0; y < containers.length; y++){
+        containers[y].id = y.toString();
+    }
+    /*
+    document.addEventListener("mouseover", () =>{
+        console.log("hello");
+    });
+    */
 });
 
+function func(event){
+    let containers = document.getElementsByClassName("container");
+    let b = document.elementsFromPoint(event.clientX, event.clientY);
+    
+
+}
+
+function funcexp(idstuff){
+    //alert(idstuff);
+    document.getElementById(idstuff).style.height = "600px";
+}
+
+function funcdescr(idstuff){
+    
+    document.getElementById(idstuff).style.height = "400px";
+}
 
