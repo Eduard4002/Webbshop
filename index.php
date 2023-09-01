@@ -157,7 +157,7 @@
 
 
         
-        <footer id="Footer">
+        <footer id="Footer" class="Footer">
             <div class="left-line">
                 <p>Logout</p>
                 <p>Terms of Service</p>

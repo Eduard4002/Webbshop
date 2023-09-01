@@ -13,24 +13,32 @@
     font-weight: bold;      Gör texten  tjock
     
 */
-
+body{
+    padding:0;
+    margin: 0;
+}
 :root{
     --test: 0;
 }
+/*
+overflow gör så att den texten som ligger utanför sin container inte syns
+*/
 #list-container
- {
-    height: 1px;
+ { 
+    height: 0px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-
-   
  }
+/*
+för att välja flera klasser
+*/
 
  .container:hover #list-container {
     height: 100%;
     overflow: visible;
     animation: 2s example;
  }
+ 
 .container{
     display: flex;
     background-color: #fff;
@@ -38,6 +46,7 @@
     flex-direction: column;
     width: 370px;
     border-radius: 40px;
+    transition: 2s;
     position: relative;
 }
 .stock{
@@ -50,7 +59,7 @@
 }
 
 @keyframes example {
-    from{height: 468};
+    from {height: 468};
     to {height: 700};
   }
 .text{
@@ -114,10 +123,7 @@ gör text responsiv
 .btncont button:hover{
     background-color: #4527A0;
 }
-.btn{
-    width: fit-content;
-    margin:auto;
-}
+
 ul{
     list-style: none;
     font-family: 'Inter', 'sans-serif';
@@ -127,32 +133,4 @@ li::before{
     display: inline-block;
     width: 2rem;
     content: "\2756";
-}
-@media only screen and (min-width: 500px) {
-    .gridcont { 
-        grid-template-columns: auto;
-        justify-content: center;
-    }
-}
-@media only screen and (min-width: 1000px) {
-  .gridcont { 
-    grid-template-columns: auto auto;
-    justify-content: center;
-}
-  }
-@media only screen and (min-width: 1400px) {
-.gridcont { 
-    grid-template-columns: auto auto auto;
-    justify-content: center;
-}
-}
-.gridcont{
-    display: grid;
-    gap: 10px;
-    width: 100%;
-    height: auto;
-    padding: 10px;
-}
-.item{
-    text-align: center;
 }
