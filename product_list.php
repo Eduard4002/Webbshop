@@ -4,8 +4,7 @@ include_once "Managers/productsManager.php";
 
 // Get all products
 $query = getAllProducts();
-
-
+    echo "<div class='gridcont'>";
     $userID = isset($_SESSION['USER']) ? $_SESSION['USER'] : null;
     if($query != null){
         while($row = mysqli_fetch_assoc($query)){
@@ -41,8 +40,7 @@ $query = getAllProducts();
             ";
         }
     }
-    if(isset($_GET['login'])){
-        echo "<p class='error'>You need to login before purchasing</p>";
-    }
+    echo "</div>";
+
 
 ?>

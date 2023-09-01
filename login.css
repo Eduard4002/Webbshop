@@ -43,7 +43,7 @@ body {
     padding: 10px; /* Padding for spacing within the button */
     box-sizing: border-box;
     border: none;
-    background-color: pink;
+    background-color: #C99383;
     color: black;
     font-size: 30px;
     font-family: Georgia, serif;
@@ -51,6 +51,7 @@ body {
     border-radius: 15px;
     cursor: pointer;
     text-decoration: none;
+    color: white;
 
 }
 

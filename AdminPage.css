@@ -61,6 +61,8 @@ input[type=checkbox], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    width: 30px;
+    height: 30px;
     margin-left: 49%;
 }
 
