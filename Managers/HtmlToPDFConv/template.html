@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1{
+            font-size: 32px;
+        }
+        .header{
+            width: fit-content;
+            margin:auto;
+            font-size: 48px;
+        }
+        .information{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .content{
+            margin-top:10px;
+            border:1px solid black;
+            padding-left: 10px;
+            width:500px;
+        }
+        .total{
+            float: right;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+
+    </style>
+</head>
+    <body>
+        <h1 class = "header">RETRO TECH</h1>
+        <div class = "information">
+            <div class = "content">
+                <h1>Customer Information</h1>
+                <p><b>Company Name:</b> {companyName}</p>
+                <p><b>First Name:</b> {firstName}</p>
+                <p><b>Last Name:</b> {lastName}</p>
+                <p><b>Email:</b> {email}</p>
+                <p><b>Phone:</b> {phone}</p>
+            </div>
+           
+        
+            <div class = "content"> 
+                <h1>Send To:</h1>
+
+                <p><b>Country:</b> {country}</p>
+                <p><b>Street Address:</b> {streetAddress}</p>
+                <p><b>Apartment:</b> {apartment}</p>
+                <p><b>Town/City:</b> {townCity}</p>
+                <p><b>State/County:</b> {stateCounty}</p>
+                <p><b>Postcode/ZIP:</b> {postcodeZIP}</p>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

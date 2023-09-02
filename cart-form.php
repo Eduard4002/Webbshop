@@ -1,6 +1,9 @@
 <?php
 if (!isset($_SESSION)) {
   session_start();
+  $userID = $_SESSION['USER'];
+}else{
+  header('location: index.php');
 }
 ?>
 
@@ -16,15 +19,16 @@ if (!isset($_SESSION)) {
   <div class="title">
       <h2>Product Order Form</h2>
   </div>
+  
 <div class="d-flex">
-  <form action="Managers/PDFCreate.php" method="POST" id = "order-form">
+  <form action="Managers/HtmlToPDFConv/PDFCreate.php" method="POST" id = "order-form">
     <label>
       <span class="fname">First Name <span class="required">*</span></span>
-      <input type="text" name="fname">
+      <input type="text" name="fname" required>
     </label>
     <label>
       <span class="lname">Last Name <span class="required">*</span></span>
-      <input type="text" name="lname">
+      <input type="text" name="lname" required>
     </label>
     <label>
       <span>Company Name (Optional)</span>
@@ -32,7 +36,7 @@ if (!isset($_SESSION)) {
     </label>
     <label>
       <span>Country <span class="required">*</span></span>
-      <select name="selection">
+      <select name="selection" required>
         <option value="select">Select a country...</option>
         <option value="AFG">Afghanistan</option>
         <option value="ALA">Åland Islands</option>
@@ -295,24 +299,26 @@ if (!isset($_SESSION)) {
     </label>
     <label>
       <span>Town / City <span class="required">*</span></span>
-      <input type="text" name="city"> 
+      <input type="text" name="city" required> 
     </label>
     <label>
       <span>State / County <span class="required">*</span></span>
-      <input type="text" name="state_county"> 
+      <input type="text" name="state_county" required> 
     </label>
     <label>
       <span>Postcode / ZIP <span class="required">*</span></span>
-      <input type="number" name="postcode_zip"> 
+      <input type="number" name="postcode_zip" required> 
     </label>
     <label>
       <span>Phone <span class="required">*</span></span>
-      <input type="tel" name="phone"> 
+      <input type="tel" name="phone" required> 
     </label>
     <label>
       <span>Email Address <span class="required">*</span></span>
-      <input type="email" name="email"> 
+      <input type="email" name="email" required> 
     </label>
+    <input type="hidden" name = "userID" value = <?php echo "$userID";?>>
+
     <input type="hidden" name = "place-order">
   </form>
   <div class="Yorder">
@@ -332,9 +338,16 @@ if (!isset($_SESSION)) {
       </span>
     </div>
     <button type="submit" form = "order-form" >Place Order</button>
+    <div class="option-text">
+      <p >Or</p>
+      <a href='cart.php'>Go Back</a>
+    </div>
+    
+
   </div><!-- Yorder -->
  </div>
 </div>
+
     </body>
 
 </html>

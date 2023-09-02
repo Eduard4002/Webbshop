@@ -90,7 +90,7 @@ function getProductsFromCart($userID){
     JOIN products p ON ci.productID = p.ID
     WHERE ci.cartID = '$cartID'");
 
-    if(mysqli_num_rows($products) == 0){
+    if(mysqli_num_rows($products) === 0){
         return null;
     }else{
         return $products;
@@ -107,6 +107,11 @@ function decreaseQuantity($userID, $productID){
     $cartItem = mysqli_query(openConn(), "SELECT cartItemID, quantity FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
     $row = mysqli_fetch_assoc($cartItem);
     $newQuantity = $row['quantity'] - 1;
+    //Delete from cart
+    if($newQuantity == 0){
+        removeProductFromCart($userID, $productID);
+        header('../cart.php');
+    }
     mysqli_query(openConn(), "UPDATE cart_items SET quantity = '$newQuantity' WHERE cartItemID = '{$row['cartItemID']}'");
     
     //Increase the stock back
@@ -116,6 +121,8 @@ function decreaseQuantity($userID, $productID){
     $newStock = $currStock + 1;
     
     mysqli_query(openConn(), "UPDATE products SET stock = '$newStock' WHERE ID = '$productID'");
+
+    
 }
 function increaseQuantity($userID, $productID){
     //Check if enough in stock

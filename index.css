@@ -37,10 +37,13 @@ nav ul li {
     border-bottom: 2px solid black; /* Adds a border around the box */
     margin:0;
 }
-
+ul{
+    list-style: none;
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 200;
+}
 .icons ul li a img {
-    width: 15%; /* Adjust the width as needed */
-    height: 15%; /* Adjust the height as needed */
+
     margin-bottom: 5%;
 }
 
