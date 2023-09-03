@@ -101,7 +101,11 @@
     unlink($tempHtmlFile);
     unlink($pdfOutputFile);
     
+    //Delete items from cart
+    deleteAllFromCart($userID);
     // Clean the output buffer and send the PDF to the browser
+
     ob_end_flush();
+    exit;
 
 ?>

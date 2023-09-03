@@ -102,6 +102,11 @@ function removeProductFromCart($userID, $productID){
     $cartID = getCardIDFromUserID($userID);
     $query = mysqli_query(openConn(), "DELETE FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
 }
+function deleteAllFromCart($userID){
+    $cartID = getCardIDFromUserID($userID);
+    $query = mysqli_query(openConn(), "DELETE FROM cart_items WHERE cartID = '$cartID'");
+
+}
 function decreaseQuantity($userID, $productID){
     $cartID = getCardIDFromUserID($userID);
     $cartItem = mysqli_query(openConn(), "SELECT cartItemID, quantity FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
