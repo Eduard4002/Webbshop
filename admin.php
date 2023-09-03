@@ -12,7 +12,7 @@
     <section>
         <a href="index.php"> ⮜ Back to Home Page </a>
         <h2>Add New Product</h2>
-        <form action="Add_Product.php" method="post" enctype="multipart/form-data">
+        <form action="Managers/productsManager.php" method="post" enctype="multipart/form-data">
 
             <label for="image">Product Image:</label><br />
             <input type="file" id="image" name="image" accept="image/*"><br><br>
@@ -34,7 +34,7 @@
             <label for="price">Price:</label><br />
             <input type="number" id="price" name="price" step="0.01" required><br><br>
         
-            <input type="submit" class="Add" name="addProduct" value="Add Product">
+            <input type="submit" class="Add" name="AdminAddProduct" value="Add Product">
         </form>
 
         <?php
@@ -45,18 +45,58 @@
         ?>
 
         <h2> Delete Product </h2>
-        <form action="Remove_Product.php" method="post">
+        <form action="Managers/productsManager.php" method="post">
             <label for="remove"> Remove Products: </label>
             <br>
 
               <?php
-                include_once "product_list.php"
+              include_once "Managers/productsManager.php";
+
+                // Get all products
+                    $query = getAllProducts();
+                    echo "<div class='gridcont'>";
+                    $userID = isset($_SESSION['USER']) ? $_SESSION['USER'] : null;
+                    if($query != null){
+                        while($row = mysqli_fetch_assoc($query)){
+                            $productID = $row['ID'];
+                            $filePath = $row['fileImage'];
+                            $name = $row['name'];
+                            $price = $row['price'];
+                            $info = $row['info'];
+                            $stock = $row['stock'];
+                            //jobba med koden nedan
+                            echo 
+                            "
+                                <div id = 'cont' class = 'container'>
+                                <img src = '$filePath'><div class = 'stock'>$stock</div></img>
+                                <hr class = 'line'></hr>
+                                <p class = 'prodname'>$name</dp>
+                                <div class = 'price'>$price kr</div>
+                                
+                                <div style = 'margin-bottom: 2rem;'>
+                                    <ul id = 'uli' class = 'listpoint'>
+                                        <li>$info</li>
+                                        
+                                    </ul>
+                                </div>
+                                    <div class = 'btn'>
+                                        <div class = 'btncont'>
+                                        <input type='checkbox' name='removeProducts[]' value='$productID'>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            ";
+                        }
+                    }
+                    echo "</div>";
 
               ?>
 
             <br><br>
 
-            <input type="submit" class="Remove" name="removeSelected" value="Remove Selected Products">
+            <input type="submit" class="Remove" name="AdminRemoveProduct" value="Remove Selected Products">
         </form>
         <?php
         if (isset($_GET['productsRemoved']) && isset($_GET['productName'])) {

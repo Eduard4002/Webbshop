@@ -1,5 +1,5 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/db_connection.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/Managers/db_connection.php";
     include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/Managers/productsManager.php";
     
     if (!isset($_SESSION)) {
