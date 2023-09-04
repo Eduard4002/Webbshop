@@ -3,13 +3,13 @@
 
 
             <?php
-                    include_once "Managers/userManager.php";
+                    include_once "../Managers/userManager.php";
 
                     if (isset($_SESSION['USER'])){
                         $userName = getUserByID($_SESSION['USER']);
                         echo "<h2> Welcome $userName </h2>";
                         echo "
-                        <form action='Managers/userManager.php' method='POST'>
+                        <form action='../Managers/userManager.php' method='POST'>
                             <div>
                                 <button type='submit' class='Button' name='logOut'> Log Out </button>
                             </div>

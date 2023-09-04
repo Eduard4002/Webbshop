@@ -3,18 +3,32 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/Managers/db_connect
 
 // Add product to the database, $isSecondHand is either 0 or 1
 function addProduct($fileToImage, $name, $price, $info, $isSecondHand, $stock) {
+    // Inserts product data into the 'products' table
     $query = mysqli_query(openConn(), "INSERT INTO products VALUES(null, '$fileToImage', '$name', '$price', '$info', '$isSecondHand', '$stock')");
 }
 
 // Get all products
 function getAllProducts() {
+    // Retrieves all products from the 'products' table
     $query = mysqli_query(openConn(), "SELECT * FROM products");
     return $query;
 }
+
 function getProducts($isSecondHand){
-    $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand' AND stock > 0");
+    // Retrieves products based on whether they are second hand and in stock
+    if($isSecondHand == 1){
+        $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand' AND stock > 0");
+    }else{
+        $query = mysqli_query(openConn(), "SELECT * FROM products WHERE secondHand = '$isSecondHand'");
+    }
     return $query;
 }
+
+function getProductFromID($productID){
+    // Retrieves a product based on its ID
+    return mysqli_query(openConn(), "SELECT * FROM products WHERE ID = '$productID'");
+}
+
 // Delete the product with product ID
 function deleteProduct($productID) {
     $conn = openConn();
@@ -44,45 +58,61 @@ function getProductNamesString($productIDs) {
     if(isset($_POST['addToCart'])){
         $productID = $_POST['productID'];
         if(!isset($_SESSION['USER'])){
-            header('location: ../login.php?login');  
+            header('location: ../Pages/login.php?login');  
         } 
         addProductToCart($_SESSION['USER'], $productID);
-        header('location: ../login.php?itemAddedToCart');
+        header('location: ../Pages/login.php?itemAddedToCart');
     }
 
     return implode(", ", $productNames);
 }
+
 function getStock($productID){
-    $query = mysqli_query(openConn(), "SELECT * FROM products WHERE ID = '$productID'");
+    // Get the stock quantity of a product
+    $query = mysqli_query(openConn(), "SELECT stock,secondHand FROM products WHERE ID = '$productID'");
     if(mysqli_num_rows($query) == 1){
         $row = mysqli_fetch_assoc($query);
-        return $row['stock'];
+        // If the product is second hand, return the current stock, otherwise return 1 to always be able to increase quantity
+        if($row['secondHand'] == 1){
+            return $row['stock'];
+        }else{
+            return 1;
+        }
     }else{
         return -1;
     }
 }
+
 function decreaseStock($productID){
+    // Decrease the stock of a product
     $currStock = getStock($productID);
     if($currStock != -1){
         $currStock--;
         $query = mysqli_query(openConn(), "UPDATE products SET stock = '$currStock' WHERE ID = '$productID'");
-        
     }
 }
+
 function getCartID($userID){
+    // Get the cart ID associated with a user
     $query = mysqli_query(openConn(), "SELECT * FROM cart WHERE userID = '$userID'");
     return mysqli_fetch_assoc($query)['cartID'] ??= null;
 }
+
 function createCart($userID){
+    // Create a new cart for a user
     $query = mysqli_query(openConn(), "INSERT INTO carts (userID) VALUES ($userID)");
 }
+
 function getCardIDFromUserID($userID){
+    // Get the cart ID associated with a user
     $query = mysqli_query(openConn(), "SELECT cartID FROM carts WHERE userID = '$userID'");
     return mysqli_fetch_assoc($query)['cartID'];
 }
+
 function getProductsFromCart($userID){
     $cartID = getCardIDFromUserID($userID);
    
+    // Get the products in a user's cart
     $cartItems = mysqli_query(openConn(), "SELECT productID FROM cart_items WHERE cartID = '$cartID'");
 
     $products = mysqli_query(openConn(), "SELECT ci.cartItemID, p.fileImage, p.name, p.price, p.info, p.ID,p.stock, ci.quantity 
@@ -97,44 +127,50 @@ function getProductsFromCart($userID){
     }
 }
 
-
 function removeProductFromCart($userID, $productID){
+    // Remove a product from a user's cart
     $cartID = getCardIDFromUserID($userID);
     $query = mysqli_query(openConn(), "DELETE FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
 }
+
 function deleteAllFromCart($userID){
+    // Delete all products from a user's cart
     $cartID = getCardIDFromUserID($userID);
     $query = mysqli_query(openConn(), "DELETE FROM cart_items WHERE cartID = '$cartID'");
-
 }
+
 function decreaseQuantity($userID, $productID){
+    // Decrease the quantity of a product in a user's cart
     $cartID = getCardIDFromUserID($userID);
     $cartItem = mysqli_query(openConn(), "SELECT cartItemID, quantity FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
     $row = mysqli_fetch_assoc($cartItem);
     $newQuantity = $row['quantity'] - 1;
-    //Delete from cart
+    // Delete from cart if quantity reaches 0
     if($newQuantity == 0){
         removeProductFromCart($userID, $productID);
-        header('../cart.php');
+        header('../Pages/cart.php');
     }
     mysqli_query(openConn(), "UPDATE cart_items SET quantity = '$newQuantity' WHERE cartItemID = '{$row['cartItemID']}'");
     
-    //Increase the stock back
+    // Increase the stock back if it's a second hand product
     $product = mysqli_query(openConn(), "SELECT stock FROM products WHERE ID = '$productID'");
     $row =  mysqli_fetch_assoc($product);
-    $currStock = $row['stock'];
-    $newStock = $currStock + 1;
     
-    mysqli_query(openConn(), "UPDATE products SET stock = '$newStock' WHERE ID = '$productID'");
-
-    
+    // We should only increase stock if it's a second hand product
+    $product = getProductFromID($productID);
+    if(mysqli_fetch_assoc($product)['secondHand'] == 1){
+        $currStock = $row['stock'];
+        $newStock = $currStock + 1;
+        mysqli_query(openConn(), "UPDATE products SET stock = '$newStock' WHERE ID = '$productID'");
+    }
 }
 function increaseQuantity($userID, $productID){
-    //Check if enough in stock
-    $product = mysqli_query(openConn(), "SELECT stock FROM products WHERE ID = '$productID'");
-    $currStock =  mysqli_fetch_assoc($product)['stock'];
+    // Check if enough in stock to increase the quantity
+    $product = mysqli_fetch_assoc(mysqli_query(openConn(), "SELECT stock,secondHand FROM products WHERE ID = '$productID'"));
+    $currStock =  $product['stock'];
+    $isSecondHand = $product['secondHand'];
 
-    if($currStock != 0){
+    if($currStock != 0 || $isSecondHand == 0){
         $cartID = getCardIDFromUserID($userID);
         $existingProduct = mysqli_query(openConn(), "SELECT cartItemID, quantity FROM cart_items WHERE cartID = '$cartID' AND productID = '$productID'");
         $row = mysqli_fetch_assoc($existingProduct);
@@ -142,13 +178,15 @@ function increaseQuantity($userID, $productID){
         $quantity++;
 
         mysqli_query(openConn(), "UPDATE cart_items SET quantity = '$quantity' WHERE cartItemID = '{$row['cartItemID']}'");
-        
-        $newStock = $currStock - 1;
-        mysqli_query(openConn(), "UPDATE products SET stock = '$newStock' WHERE ID = '$productID'");
+        // Decrease stock if it's a second hand product
+        $product = getProductFromID($productID);
+        if(mysqli_fetch_assoc($product)['secondHand'] == 1){
+            $newStock = $currStock - 1;
+            mysqli_query(openConn(), "UPDATE products SET stock = '$newStock' WHERE ID = '$productID'"); 
+        }
     }
-
-    
 }
+
 function addProductToCart($userID, $productID){
     $cartID = getCardIDFromUserID($userID);
     // Check if the product already exists in the cart
@@ -161,10 +199,12 @@ function addProductToCart($userID, $productID){
          // Product doesn't exist, insert a new row
          mysqli_query(openConn(), "INSERT INTO cart_items (cartID, productID, quantity) VALUES ('$cartID', '$productID', '1')");
     }
-    decreaseStock($productID);
 
-    //$query = mysqli_query(openConn(), "INSERT INTO cart_items VALUES (null,'$cartID','$productID','$quantity')");
-    //decreaseStock($productID);
+    // Decrease stock if it's a second hand product
+    $product = getProductFromID($productID);
+    if(mysqli_fetch_assoc($product)['secondHand'] == 1){
+        decreaseStock($productID);
+    }
 }
 
 if(isset($_POST['addToCart'])){
@@ -172,23 +212,22 @@ if(isset($_POST['addToCart'])){
     $userID = $_POST['userID'];
 
     if($userID === null) {
-        header('location: ../index.php?login');
+        header('location: ../Pages/index.php?login');
     }
     addProductToCart($userID, $productID);
-    header('location: ../index.php?itemAddedToCart');
+    header('location: ../Pages/index.php?itemAddedToCart');
 }else if(isset($_POST['decreaseQuantity'])){
     $productID = $_POST['productID'];
     $userID = $_POST['userID'];
     decreaseQuantity($userID, $productID);
-    header('location: ../cart.php');
-
+    header('location: ../Pages/cart.php');
 }else if(isset($_POST['increaseQuantity'])){
     $productID = $_POST['productID'];
     $userID = $_POST['userID'];
     increaseQuantity($userID, $productID);
-    header('location: ../cart.php');
+    header('location:../Pages/cart.php');
 }else if(isset($_POST['AdminAddProduct'])){
-    // Get form data
+    // Get form data for adding a product from an admin
     $productName = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
@@ -197,7 +236,7 @@ if(isset($_POST['addToCart'])){
     $secondHand = $_POST['secondhand'];
 
     // Image upload handling
-    $targetDir = "res/"; // Directory where images will be stored
+    $targetDir = "../res/"; // Directory where images will be stored
     $targetFile = $targetDir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
@@ -208,15 +247,15 @@ if(isset($_POST['addToCart'])){
     $sanitizedFileName = $uniqueIdentifier . '.' . $imageFileType;
     $targetFile = $targetDir . $sanitizedFileName;
 
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], "../".$targetFile)) {
+    if (move_uploaded_file($_FILES["image"]["tmp_name"],$targetFile)) {
         echo "Image uploaded successfully.";
         addProduct($targetFile,$productName,$price,$description,$secondHand,$stock);
         
         // Redirect to the index page with a success message and the product name
-        header("location: ../admin.php?itemAdded");
+        header("location: ../Pages/admin.php?itemAdded");
 
     } else {
-        header('location: ../admin.php?failed');
+        header('location: ../Pages/admin.php?failed');
     }
 }else if(isset($_POST['AdminRemoveProduct'])){
     if (isset($_POST['removeProducts'])) {
@@ -226,7 +265,7 @@ if(isset($_POST['addToCart'])){
         foreach ($productsToRemove as $productId) {
             $removedProductName = deleteProduct($productId);
             // Display a message with the removed product name
-            header('location: ../admin.php');
+            header('location: ../Pages/admin.php');
         }
     }
 }
