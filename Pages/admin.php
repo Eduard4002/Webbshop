@@ -64,6 +64,9 @@
                             $price = $row['price'];
                             $info = $row['info'];
                             $stock = $row['stock'];
+                            // Split the info parameter into an array of lines
+                            $infoLines = explode("\n", $info);
+
                             //jobba med koden nedan
                             echo 
                             "
@@ -74,8 +77,14 @@
                                 <div class = 'price'>$price kr</div>
                                 
                                 <div style = 'margin-bottom: 2rem;'>
-                                    <ul id = 'uli' class = 'listpoint'>
-                                        <li>$info</li>
+                                    <ul id = 'uli' class = 'listpoint'>";
+                                    // Create a list point for each line of description
+                                    foreach ($infoLines as $line) {
+                                        if($line != ""){
+                                            echo "<li>$line</li>";
+                                        }
+                                    }
+                                    echo "  
                                         
                                     </ul>
                                 </div>

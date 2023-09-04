@@ -41,7 +41,7 @@ if (!isset($_SESSION)) {
             <p>number: +46700000000</p>
             <p>
                 <div class="star">
-                    <img src="Design/star.png">
+                    <img src="../Design/star.png">
                 </div>
         </div>
         
