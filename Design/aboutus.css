@@ -212,8 +212,6 @@ body{
     background-color: #1a1c1f;
     font-family: 'Inter', sans-serif;
     font-weight: 200;
-    margin-left: 100px;
-    margin-top: 100px;
 }
 .Wrapper{
     padding-top: 11%;
@@ -244,6 +242,7 @@ body{
     color: white;
 
 }
+
 p{
     width: 50%;
     padding-left: 11%;
@@ -260,8 +259,7 @@ p{
 footer{
     display: flex;
     justify-content: space-around;
-    /*position: absolute;*/
-    width: 100%;
+    width: 100vw;
     left: 0%;
     right: 0%;
     min-height: 150px;
@@ -292,13 +290,24 @@ footer{
     .navbar-links{
         display: none;
     }
-    .person{
-        max-width: 100%;
-    }
-    .textcont{
+    .person div{
         display: flex;
-        flex-direction:grid;
-        max-width: 50%;
-
+        flex-direction:column;
+        min-width: 100%;
+        margin-left: 10%;
     }
+    p{
+        min-width: 50%;
+    }/*
+    .textcont p{
+        margin-top: 1px;
+        margin-left: -20%;
+    }
+    .person img{
+        margin-left: 20%;
+    }*/
+    body{
+        width: 100;
+    }
+    
 }
