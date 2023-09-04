@@ -209,9 +209,9 @@ color: white;
 }
 
 body{
-    background-color: #1a1c1f;
+/*    background-color: #1a1c1f;
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
+    font-weight: 200;*/
 }
 .Wrapper{
     padding-top: 11%;
@@ -225,24 +225,36 @@ body{
     margin: 30px;
     border-radius: 48%;
 }
+a{
+    color: white;
+}
+.img1{
+}
+.img2{
+    
+}
+.img3{
+    
+}
+.img4{
+    
+}
 /*border: 2px solid black;*/
 .person div{
     display: flex;
     min-width: 100%;
 }
+
 .textcont{
     display: flex;
     flex-direction: column;
     max-width: 100%;
-
 }
 .textcont p{
     margin-top: 1px;
     margin-left: -11%;
     color: white;
-
 }
-
 p{
     width: 50%;
     padding-left: 11%;
@@ -256,6 +268,7 @@ p{
     margin-left: auto;
     width: 380px;
 }
+
 footer{
     display: flex;
     justify-content: space-around;
@@ -277,14 +290,12 @@ footer{
     color: #ffffff;
 }
 
-
-}
 @media only screen and (max-width: 710px){
     .navbar-links{
         display: none;
     }
     .person{
-        max-width: 60%;
+        max-width: 71%;
     }
     
 } 
@@ -299,12 +310,15 @@ footer{
         padding-left: 10%;
     }
     p{
-        min-width: 50%;
+        min-width: 60%;
         margin-right: -35%;
     }
     .textcont p{
         margin-top: 1px;
-        margin-left: -35%;
+        margin-left: -20%;
+    }
+    a{
+        margin-left: -9%;
     }
     .person img{
         margin-left: 35%;
