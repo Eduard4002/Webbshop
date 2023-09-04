@@ -8,7 +8,8 @@
   .gridcont { 
     grid-template-columns: auto auto;
     justify-content: center;
-}
+  }
+       
   }
 @media only screen and (min-width: 1400px) {
 .gridcont { 
@@ -26,3 +27,8 @@
 .item{
     text-align: center;
 }
+
+.heightcheck{
+    height: 130px;
+}
+

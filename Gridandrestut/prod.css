@@ -13,6 +13,12 @@
     font-weight: bold;      Gör texten  tjock
     
 */
+@media only screen and (max-width: 600px) {
+    .heightcheck{
+        height: 100px;
+    }
+    
+}
 body{
     padding:0;
     margin: 0;
@@ -20,6 +26,7 @@ body{
 :root{
     --test: 0;
 }
+
 /*
 overflow gör så att den texten som ligger utanför sin container inte syns
 /transition: all 0.000001s ease-in-out;
@@ -110,13 +117,17 @@ gör text responsiv
 */
 
 .btncont{
-    text-align: center;
-    margin-top: auto;
+    text-align: center !important;
+    margin-top: auto !important;
 }
-.btncont button{
+.btncont .btn2{
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    font-size: 15px !important;
+    display: inline-block !important;
     cursor: pointer;
-    width: 100px;
-    height: 35px;
+    width: 100px !important;
+    height: 35px !important;
     border: none;
     color: white;
     background-color: #CB7575;
@@ -137,4 +148,9 @@ li::before{
     display: inline-block;
     width: 2rem;
     content: "\2756";
+}
+.list{
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
 }
