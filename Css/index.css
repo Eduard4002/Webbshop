@@ -20,7 +20,9 @@ nav {
     width: 100%;
 
 }
-
+main{
+    overflow: hidden;
+}
 /* styling for navbar links */
 nav ul li {
     width: 100%;
@@ -32,15 +34,18 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    height: 15%;
+    height: 100%;
     padding: 10px; /* Adds padding to create space inside the box */
     border-bottom: 2px solid black; /* Adds a border around the box */
     margin:0;
 }
-
+ul{
+    list-style: none;
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 200;
+}
 .icons ul li a img {
-    width: 15%; /* Adjust the width as needed */
-    height: 15%; /* Adjust the height as needed */
+
     margin-bottom: 5%;
 }
 
@@ -82,7 +87,7 @@ nav ul li {
 
 
 
-button {
+ button {
     width: 100%;
     padding: 0;
     margin: 0;
@@ -184,84 +189,15 @@ label {
 
 }
 
-h2 {
+h2,h1 {
 color: white;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
-/*
-    object-fit: cover;  bilden behåller sin ratio och fyller skärmen. Det som inte få plats klipps ut
-     
-    ändrar så att texten istället hamnar i columner
-    .person div{
-       flex-direction: column;
-       max-width: 10%;
-    }
-*/
 
-@media only screen and (min-width: 710px) {
-    .person div{
-       flex-direction: column;
-       max-width: 50%;
-    }
-    .textcont p{
-        margin-left: 0;
-    }
-}
-
-body{
-    background-color: #1a1c1f;
-    font-family: 'Inter', sans-serif;
-    font-weight: 200;
-    margin-left: 100px;
-    margin-top: 100px;
-}
-.Wrapper{
-    padding-top: 11%;
-    position: center;
-}
-.person img{
-    display: block;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 30px;
-    border-radius: 48%;
-}
-/*border: 2px solid black;*/
-.person div{
-    display: flex;
-    min-width: 100%;
-}
-.textcont{
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-
-}
-.textcont p{
-    margin-top: 1px;
-    margin-left: 30px;
-    color: white;
-
-}
-p{
-    width: 50%;
-    padding-left: 11%;
-}
-
-.textcont h1{
-    margin: 0 0 0 15%;
-    font-weight: 700;
-}
-.textcontdesc{
-    margin-left: auto;
-    width: 380px;
-}
 footer{
     display: flex;
     justify-content: space-around;
-    /*position: absolute;*/
+    position: relative; /* Change to fixed */
+    bottom: 0; /* Position at the bottom of the viewport */
     width: 100%;
     left: 0%;
     right: 0%;
@@ -269,8 +205,7 @@ footer{
     border: #000000;
     border-style: solid;
     background-color: #000000;
-    margin-top: 100%;
-    bottom: -100%;
+   
 
 }
 .right-line {
@@ -279,47 +214,84 @@ footer{
 .left-line {
     color: #ffffff;
 }
-@media only screen and (max-width: 710px){
-    .textcont p{
-        margin-left: -60px;
-    }
 
+.MobileNav {
+    display: none;
 
 }
-@media only screen and (max-width: 710px){
-    .navbar-links{
-        display: none;
-    }
-    .person{
-        max-width: 10%;
-    }
+
+@media only screen and (max-width: 929px) {
     
-    .textcontdesc{
-        width: 290px;
-    }
-    footer{
-        min-width: 100%;
-    }
+  .navbar-links li {
+    display: none;
+    width: 0px;
+    height: 0px;
+    float: left;
+  }
 
-}
-@media only screen and (min-width: 500px){
-    .navbar-links{
-        display: none;
-    }
-    .person{
+  .logo {
+    float: left;
+    margin: 0px;
+  }
 
-        max-width: 100%;
-    }
-    .textcontdesc{
-        width: 150px;
-    }
-    footer{
-        min-width: 100%;
-        padding-left: 15%;
-        z-index:100;
-    }
+  .MobilePopup {
+      width: 65px;
+      float: right;
+      margin-right: 8px;
+  }
 
-    h1{
-        text: smaller;
-    }
+  .Bars {
+    background-color: white;
+    border-radius: 15px;
+    height: 8px;
+
+  }
+
+  .Bar {
+    background-color: white;
+    border-radius: 15px;
+    height: 8px;
+    margin-top: 10px;
+
+  }
+
+   
+  .MobileNav {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    display: none;
+
+  }
+
+  .MobileNav a {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    margin: 30px 0;
+  }
+
+  .PopupWindow ,.LogInWindow, .SignUpWindow {
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: solid black 2px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    float: right;
+    position:absolute;
+    right: 10px;
+    margin-top: 20px;
+    z-index: 10000;
+    background-color: #2b2a2a9c;
+  }
+
+  .LogOutText {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    margin: 30px 0;
+    background-color: #555;
+  }
 }

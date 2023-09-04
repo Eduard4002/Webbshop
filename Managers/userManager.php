@@ -50,11 +50,11 @@
         $passw = $_POST['passw'];
         echo "ID: ".getUserID($userName);
         if(getUserID($userName) != 0) {
-            header('location: ../index.php?userExists');
+            header('location: ../Pages/index.php?userExists');
             exit;   
         }
         if($userName === 'admin'){
-            header('location: ../index.php?DiffUsername');
+            header('location: ../Pages/index.php?DiffUsername');
         }
         //add the user to the database
         addNewUser($email,$userName,$passw);
@@ -75,13 +75,13 @@
         $userID = getUserID($userName);
         //check if user exists
        if(!($userID > 0)){
-           header('location: ../index.php?noUser');
+           header('location: ../Pages/index.php?noUser');
        }
        
         // Check if username and password match
         if ($userName === 'admin' && $passw === '1234') {
             // Redirect to the admin page
-            header('Location: ../admin.php');
+            header('Location: ../Pages/admin.php');
             exit; // Terminate the script after redirect
         } 
         //check if password and username match
@@ -92,20 +92,14 @@
 
             echo "Name: ".$userName;
     
-            header('location: ../index.php?Logged');
+            header('location: ../Pages/index.php?Logged');
         }else{
-            header('location: ../login.php?invalidLog=1');
+            header('location: ../Pages/login.php?invalidLog=1');
             
         
         }
     }else if(isset($_POST['logOut'])){
         $_SESSION['USER'] = null;
-        header('location: ../index.php');
+        header('location: ../Pages/index.php');
     }
-    
-    
-
-
-        
-    
 ?>
