@@ -27,7 +27,6 @@ nav ul li {
 }
 /* position for navbar links */
 .navbar-links {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,9 +77,6 @@ nav ul li {
     text-decoration: none;
     color: rgb(255, 255, 255); /* Adjust the color as needed */
 }
-
-
-
 
 button {
     width: 100%;
@@ -170,9 +166,7 @@ label {
 }
 
 .CloseButton {
-    position: relative;
-
-    
+    position: relative;  
     background: none;
     border: none;
     font-size: 24px;
@@ -181,11 +175,10 @@ label {
     font-size: 36px;
     color: white;
     width: 50px;
-
 }
 
 h2 {
-color: white;
+color: rgb(255, 0, 0);
 }
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
@@ -216,41 +209,64 @@ body{
 }
 .person img{
     display: block;
-    width: 150px;
-    height: 150px;
+
     object-fit: cover;
     margin: 30px;
     border-radius: 48%;
 }
+.img1{
+    height: 30%;
+    width: 30%;
+}
+.img2{
+    height: 30%;
+    width: 30%;
+}
+.img3{
+    height: 30%;
+    width: 30%;
+}
+.img4{
+    height: 30%;
+    width: 30%;
+}
 /*border: 2px solid black;*/
 .person div{
     display: flex;
-    min-width: 100%;
+    min-width: 90%;
+    padding-left: 3%;
 }
 .textcont{
     display: flex;
     flex-direction: column;
     max-width: 100%;
-
+    padding-left: -30%;
 }
 .textcont p{
     margin-top: 1px;
     margin-left: 30px;
     color: white;
+    text: larger;
 
 }
 p{
     width: 50%;
     padding-left: 11%;
+
+}
+#text{
+    size: larger;
 }
 
 .textcont h1{
     margin: 0 0 0 15%;
-    font-weight: 700;
+    font-weight: 1500;
 }
 .textcontdesc{
     margin-left: auto;
     width: 380px;
+    text: larger;
+
 }
 footer{
     display: flex;
@@ -265,6 +281,8 @@ footer{
     background-color: #000000;
     margin-top: 100%;
     bottom: -100%;
+    text: larger;
+
 
 }
 .right-line {
@@ -272,14 +290,17 @@ footer{
 }
 .left-line {
     color: #ffffff;
-}
+}/*
 @media only screen and (max-width: 710px){
+    .textcont p{
+        margin-left: -60px;
+    }
     .navbar-links{
         display: none;
     }
     .person{
 
-        max-width: 50%;
+        max-width: 60%;
     }
     .textcontdesc{
         width: 290px;
@@ -287,9 +308,17 @@ footer{
     footer{
         min-width: 100%;
     }
+    h2{
+        text: larger;
+    }
+    p{
+        float: left;
+        text: larger;
+    }
 
-}
-@media only screen and (min-width: 500px){
+
+} 
+@media only screen and (max-width: 500px){
     .navbar-links{
         display: none;
     }
@@ -306,6 +335,13 @@ footer{
         z-index:100;
     }
     h1{
-        text: smaller;
+        text: larger;
     }
+    h2{
+        text: larger;
+    }
+    p{
+        text: larger;
+    }
+
 }
