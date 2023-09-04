@@ -191,31 +191,25 @@ color: white;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 /*
     object-fit: cover;  bilden behåller sin ratio och fyller skärmen. Det som inte få plats klipps ut
-     
-    ändrar så att texten istället hamnar i columner
-    .person div{
-       flex-direction: column;
-       max-width: 10%;
-    }
 */
 
 @media only screen and (min-width: 710px) {
     .person div{
        flex-direction: column;
-       max-width: 50%;
+       max-width: 10%;
     }
     .textcont p{
         margin-left: 0;
     }
 }
-
+/*
 body{
     background-color: #1a1c1f;
     font-family: 'Inter', sans-serif;
     font-weight: 200;
     margin-left: 100px;
     margin-top: 100px;
-}
+}*/
 .Wrapper{
     padding-top: 11%;
     position: center;
@@ -280,18 +274,13 @@ footer{
     color: #ffffff;
 }
 @media only screen and (max-width: 710px){
-    .textcont p{
-        margin-left: -60px;
-    }
-
-@media only screen and (max-width: 710px){
     .navbar-links{
         display: none;
     }
     .person{
-        max-width: 10%;
+
+        max-width: 50%;
     }
-    
     .textcontdesc{
         width: 290px;
     }
@@ -306,7 +295,7 @@ footer{
     }
     .person{
 
-        max-width: 100%;
+        max-width: 40%;
     }
     .textcontdesc{
         width: 150px;
