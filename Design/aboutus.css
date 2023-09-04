@@ -290,7 +290,7 @@ footer{
 }
 .left-line {
     color: #ffffff;
-}/*
+}
 @media only screen and (max-width: 710px){
     .textcont p{
         margin-left: -60px;
@@ -324,7 +324,7 @@ footer{
     }
     .person{
 
-        max-width: 40%;
+        max-width: 100%;
     }
     .textcontdesc{
         width: 150px;
