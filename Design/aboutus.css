@@ -276,7 +276,12 @@ footer{
 }
 .left-line {
     color: #ffffff;
-}/*
+}
+@media only screen and (max-width: 710px){
+    .textcont p{
+        margin-left: -60px;
+    }
+
 @media only screen and (max-width: 710px){
     .textcont p{
         margin-left: -60px;
@@ -307,6 +312,10 @@ footer{
 @media only screen and (max-width: 500px){
     .navbar-links{
         display: none;
+    }
+    .person{
+
+        max-width: 100%;
     }
     .textcontdesc{
         width: 150px;

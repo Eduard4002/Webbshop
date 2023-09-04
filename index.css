@@ -221,7 +221,7 @@ footer{
 
 @media only screen and (max-width: 929px) {
     
-  li {
+  .navbar-links li {
     display: none;
     width: 0px;
     height: 0px;

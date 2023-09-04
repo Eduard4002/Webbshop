@@ -93,7 +93,7 @@ if (!isset($_SESSION)) {
         <?php include_once "Extra/popup.php"?>
         <main>
 
-            <div class = "gridcont">
+            <div class = "gridcont" id="gridcont">
                 <?php
                         include_once "Managers/productsManager.php";
 
