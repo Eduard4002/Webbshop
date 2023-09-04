@@ -238,6 +238,7 @@ footer{
       width: 65px;
       float: right;
       margin-right: 8px;
+      
   }
 
   .Bars {
@@ -260,7 +261,12 @@ footer{
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     display: none;
-
+    position: absolute;
+    top: 20;
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    z-index: 1000;
   }
 
   .MobileNav a {
