@@ -10,8 +10,8 @@ if (!isset($_SESSION)) {
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <link rel="stylesheet" href="cart-form.css">
+        <link rel="stylesheet" type="text/css" href="../Css/index.css">
+        <link rel="stylesheet" href="../Css/cart-form.css">
     </head>
     <body>
 

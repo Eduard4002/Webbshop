@@ -5,14 +5,14 @@
 <html>
 <head>
     <title>Add a new product</title>
-    <link rel="stylesheet" href="AdminPage.css">
-    <link rel="stylesheet" href="prod.css">
+    <link rel="stylesheet" href="../Css/AdminPage.css">
+    <link rel="stylesheet" href="../Css/prod.css">
 </head>
 <body>
     <section>
         <a href="index.php"> ⮜ Back to Home Page </a>
         <h2>Add New Product</h2>
-        <form action="Managers/productsManager.php" method="post" enctype="multipart/form-data">
+        <form action="../Managers/productsManager.php" method="post" enctype="multipart/form-data">
 
             <label for="image">Product Image:</label><br />
             <input type="file" id="image" name="image" accept="image/*"><br><br>
@@ -45,12 +45,12 @@
         ?>
 
         <h2> Delete Product </h2>
-        <form action="Managers/productsManager.php" method="post">
+        <form action="../Managers/productsManager.php" method="post">
             <label for="remove"> Remove Products: </label>
             <br>
 
               <?php
-              include_once "Managers/productsManager.php";
+              include_once "../Managers/productsManager.php";
 
                 // Get all products
                     $query = getAllProducts();

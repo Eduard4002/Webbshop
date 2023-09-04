@@ -1,19 +1,12 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
-
 /*
     containern får display flex
     text-align: center centrerar texten i boxen
-
     margin: 0 auto      för flex item gör så att item centreras i sin box
-
     font-weight: bold;      Gör texten  tjock
-    
 */
-
 :root{
     --test: 0;
 }
@@ -22,14 +15,11 @@
     height: 1px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-
-   
  }
-
- .container:hover #list-container {
+ .container:hover .listpoint {
     height: 100%;
     overflow: visible;
-    animation: 2s example;
+    transition: 2s example;
  }
 .container{
     display: flex;
@@ -48,7 +38,6 @@
     font-family: 'Inter', sans-serif;
     font-weight: 100;
 }
-
 @keyframes example {
     from{height: 468};
     to {height: 700};
@@ -70,7 +59,7 @@
 /*
 jobba med pos w3schools
 gör text responsiv
-*/ 
+*/
 .prodname{
     font-family: 'Inter', sans-serif;
     font-size: 24px;
@@ -79,8 +68,6 @@ gör text responsiv
     padding: 0;
     font-weight: 100;
 }
-
-
 .price{
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
@@ -89,12 +76,10 @@ gör text responsiv
     color: #DD1616;
     display: inline-block;
 }
-
 /*
     margin-top: auto; tar upp all tillgänglig plats från top och flyttar element längst ner
     studera auto margins och inline-block
 */
-
 .btncont{
     text-align: center;
     margin-top: auto;
@@ -117,26 +102,25 @@ gör text responsiv
     width: fit-content;
     margin:auto;
 }
-
 #uli li::before{
     display: inline-block;
     width: 2rem;
     content: "\2756";
 }
 @media only screen and (min-width: 500px) {
-    .gridcont { 
+    .gridcont {
         grid-template-columns: auto;
         justify-content: center;
     }
 }
 @media only screen and (min-width: 1000px) {
-  .gridcont { 
+  .gridcont {
     grid-template-columns: auto auto;
     justify-content: center;
 }
   }
 @media only screen and (min-width: 1400px) {
-.gridcont { 
+.gridcont {
     grid-template-columns: auto auto auto;
     justify-content: center;
 }
@@ -151,3 +135,10 @@ gör text responsiv
 .item{
     text-align: center;
 }
+
+
+
+
+
+
+
