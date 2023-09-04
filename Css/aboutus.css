@@ -294,18 +294,19 @@ footer{
         display: flex;
         flex-direction:column;
         min-width: 100%;
-        margin-left: 10%;
+        padding-left: 10%;
     }
     p{
         min-width: 50%;
-    }/*
+        margin-right: -35%;
+    }
     .textcont p{
         margin-top: 1px;
-        margin-left: -20%;
+        margin-left: -35%;
     }
     .person img{
-        margin-left: 20%;
-    }*/
+        margin-left: 35%;
+    }
     body{
         width: 100;
     }

@@ -34,7 +34,6 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
-    height: 100%;
     padding: 10px; /* Adds padding to create space inside the box */
     border-bottom: 2px solid black; /* Adds a border around the box */
     margin:0;
