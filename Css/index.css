@@ -218,7 +218,11 @@ footer{
     display: none;
 
 }
-
+.header{
+    font-size: 48px;
+    font-weight: bold;
+    margin-left: 50px;
+}
 @media only screen and (max-width: 929px) {
     
   .navbar-links li {

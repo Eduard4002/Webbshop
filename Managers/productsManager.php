@@ -39,9 +39,8 @@ function deleteProduct($productID) {
     $productName = $row['name'];
     $imageName = $row['fileImage'];
 
-    $filePath = $_SERVER['DOCUMENT_ROOT'] . "/Webbshop/Webbshop/".$imageName;
-    if (file_exists($filePath)) {
-        unlink($filePath); // This deletes the image file
+    if (file_exists($imageName)) {
+        unlink($imageName); // This deletes the image file
     }
 
     // Delete the product entry from the database

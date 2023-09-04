@@ -19,6 +19,7 @@ if (!isset($_SESSION)) {
         <?php include_once "../Extra/navbar.php";
         include_once "../Extra/popup.php"?>
         <main>
+        <h1 class="header">Second hand</h1>
 
             <div class = "gridcont">
                 <?php
@@ -37,18 +38,26 @@ if (!isset($_SESSION)) {
                             $price = $row['price'];
                             $info = $row['info'];
                             $stock = $row['stock'];
+
+                            // Split the info parameter into an array of lines
+                            $infoLines = explode("\n", $info);
                             echo 
                             "
-                                <div id = 'cont' onmouseout='funcdescr(this.id)' onmouseover='funcexp(this.id)' class = 'container'>
-                                <img src = '$filePath'><div class = 'stock'>$stock</div></img>
+                                <div id = 'cont' class = 'container'>
+                                <img src = '$filePath'><div class = 'stock'>$stock st</div></img>
                                 <hr class = 'line'></hr>
                                 <p class = 'prodname'>$name</dp>
                                 <div class = 'price'>$price kr</div>
                                 
                                 <div style = 'margin-bottom: 2rem;'>
-                                    <ul id = 'uli' class = 'listpoint'>
-                                        <li>$info</li>
-                                        
+                                    <ul id = 'uli' class = 'listpoint'>";
+                                        // Create a list point for each line of description
+                                        foreach ($infoLines as $line) {
+                                            if($line != ""){
+                                                echo "<li>$line</li>";
+                                            }
+                                        }
+                                    echo "                      
                                     </ul>
                                 </div>
                                     <div class = 'btn'>
@@ -74,7 +83,7 @@ if (!isset($_SESSION)) {
                 
                 ?>
             </div>
-            <h1>Första hand</h1>
+            <h1 class="header">Första hand</h1>
             <!--Första hand produkter-->
             <div class = "gridcont">
                 <?php
@@ -93,29 +102,38 @@ if (!isset($_SESSION)) {
                             $price = $row['price'];
                             $info = $row['info'];
                             $stock = $row['stock'];
+
+                            // Split the info parameter into an array of lines
+                            $infoLines = explode("\n", $info);
                             //jobba med koden nedan
                             echo 
                             "
-                                <div id = 'cont' class = 'container' onmouseout='funcdescr(this.id)' onmouseover='funcexp(this.id)' class = 'container'>
+                                <div id = 'cont' class = 'container' class = 'container'>
                                 <img src = '$filePath'></img>
                                 <hr class = 'line'></hr>
                                 <p class = 'prodname'>$name</dp>
                                 <div class = 'price'>$price kr</div>
                                 
                                 <div style = 'margin-bottom: 2rem;'>
-                                    <ul id = 'list-container' class = 'listpoint'>
-                                        <li>$info</li>
+                                    <ul id = 'uli' class = 'listpoint'>";
+                                    // Create a list point for each line of description
+                                    foreach ($infoLines as $line) {
+                                        if($line != ""){
+                                            echo "<li>$line</li>";
+                                        }
+                                    }
+                                    echo "   
                                         
                                     </ul>
                                 </div>
                                     <div class = 'btn'>
                                         <div class = 'btncont'>
-                                        <form action = '../Managers/productsManager.php' method='post'>
-                                            <button type='submit' name = 'addToCart'"; if(!isset($_SESSION['USER'])) echo "disabled";echo ">BUY</button>
-                                            <input type='hidden' name = 'productID' value = '$productID'>
-                                            <input type='hidden' name = 'userID' value = '$userID'>
+                                            <form action = '../Managers/productsManager.php' method='post'>
+                                                <button type='submit' name = 'addToCart'"; if(!isset($_SESSION['USER'])) echo "disabled";echo ">BUY</button>
+                                                <input type='hidden' name = 'productID' value = '$productID'>
+                                                <input type='hidden' name = 'userID' value = '$userID'>
 
-                                        </form>
+                                            </form>
                                         </div>
                                     </div>
                                     
@@ -130,18 +148,6 @@ if (!isset($_SESSION)) {
                 ?>
             </div>
         </main>
-        
-        <footer>
-            <div class="left-line">
-                <p>Logout</p>
-                <p>Terms of Service</p>
-                <p>Privacy</p>
-            </div>
-            <div class="right-line">
-                <p>Contact Info</p>
-                <li>Number: +46700000000</li>
-                <li>Email: retro.tech@example.com</li>
-            </div>
-        </footer>
+       
     </body>
 </html>
