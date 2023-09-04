@@ -13,8 +13,8 @@ function toggleMainPopup() {
 function MobilePopup() {
 
     var MobileMenu = document.getElementById("MobileNav"); 
-    var Footer = document.getElementById("Footer")
-    var Products = document.getElementById("gridcont")
+    var Footer = document.getElementById("Footer");
+    var Products = document.getElementById("gridcont");
     if (MobileMenu.style.display === "none") {
         MobileMenu.style.display = "flex";
         Footer.style.display = "none";

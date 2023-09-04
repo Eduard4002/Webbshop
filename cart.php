@@ -40,6 +40,52 @@
             </ul>
         </div>
     </nav>
+    <div class="MobileNav" id="MobileNav" style="display: none;">
+            
+            
+            <?php
+                include_once "Managers/userManager.php";
+
+                if (isset($_SESSION['USER'])){
+                    $userName = getUserByID($_SESSION['USER']);
+                    echo "<h1> Welcome $userName </h1>";
+                    echo "
+                    <form action='Managers/userManager.php' method='POST'>
+                        <div>
+                            <button class='LogOutText' type='submit' name='logOut'> Log Out </button>
+                        </div>
+                    </form> ";
+
+                } else {
+                    echo "
+                    <a href='login.php'> Log In </a>
+                    <a href='signup.php' > Sign Up </a>
+                    ";
+
+                }
+
+            ?>  
+        <a href="cart.php"> Shopping Cart </a>
+        <a href="index.php"> Products </a>
+        <a href="contact.php"> Customer Service </a>
+        <a href="Design/aboutus.html"> About Us </a>
+
+    </div>
+
+    <footer id="Footer" class="Footer">
+            <div class="left-line">
+                <p>Logout</p>
+                <p>Terms of Service</p>
+                <p>Privacy</p>
+            </div>
+            <div class="right-line">
+                <p>Contact Info</p>
+                <li>Number: +46700000000</li>
+                <li>Email: retro.tech@example.com</li>
+            </div>
+        </footer>
+
+        
         <?php include_once "Extra/popup.php"; ?>
     <main>
         <?php
@@ -49,8 +95,8 @@
             if(!isset($_SESSION['USER'])){
                 echo "
                 <div class='errorSec'>
-                    <p class='error-text'>You have to login to view cart</p>
-                    <a href='login.php' class='login'>Login here</a>
+                    <p class='error-text' id='gridcont'>You have to login to view cart</p>
+                    <a href='login.php' class='login' id='gridcont'>Login here</a>
                 </div>";
 
 
