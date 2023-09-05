@@ -1,0 +1,168 @@
+
+
+label {
+    font-size: 18px;
+    color: white;
+}
+
+#Username {
+    width: 90%;
+    height: 20px; /* Adjust the height of the text field */
+    padding: 5px; /* Adjust padding for spacing inside the text field */
+    font-size: 18px; /* Adjust font size */
+    border: solid black 2px;
+    border-radius: 15px;
+    text-indent: 10px;
+}
+
+.CloseButton {
+    position: relative;
+
+    
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 36px;
+    color: white;
+    width: 50px;
+
+}
+
+h2 {
+color: white;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+/*
+    object-fit: cover;  bilden behåller sin ratio och fyller skärmen. Det som inte få plats klipps ut
+     
+    ändrar så att texten istället hamnar i columner
+    .person div{
+       flex-direction: column;
+       max-width: 10%;
+    }
+*/
+
+@media only screen and (max-width: 710px) {
+    .person div{
+       /*flex-direction: column;*/
+       max-width: 50%;
+
+    }
+    .textcont p{
+        margin-left: 0;
+    }
+}
+
+body{
+  background-color: #1a1c1f;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+}/*
+.Wrapper{
+    padding-top: 11%;
+    position: center;
+}*/
+.person img{
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 30px;
+    border-radius: 48%;
+}
+a{
+    color: white;
+}
+/*
+.img1{
+
+}
+.img2{
+    
+}
+.img3{
+margin-right: 30%; 
+}
+.img4{
+    
+}
+/*border: 2px solid black;*/
+.person div{
+    min-width: 100%;
+
+}
+.person .textcont{
+    padding-left: 30px;
+}
+.textcont{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+.textcont p{
+    margin-top: 1px;
+    margin-left: -11%;
+    color: white;
+}
+p{
+    width: 50%;
+    padding-left: 11%;
+}
+
+.textcont h1{
+    margin: 0 0 0 15%;
+    font-weight: 700;
+}
+.textcontdesc{
+    margin-left: auto;
+}
+
+
+@media only screen and (max-width: 710px){
+    .navbar-links{
+        display: none;
+    }
+    .person{
+        min-width: 71%;
+    }
+    
+} 
+@media only screen and (max-width: 500px){
+    .navbar-links{
+        display: none;
+    }
+    .person div{
+        display: flex;
+        flex-direction:column;
+        min-width: 90%;
+        padding-left: 5%;
+    }
+    p{
+        min-width: 100%;
+        margin-right: -35%;
+    }
+    .textcont p{
+        margin-top: 1px;
+        margin-left: -20%;
+    }
+    a{
+        margin-left: -9%;
+    }
+    .person img{
+        margin-left: 35%;
+    }
+    body{
+        width: 100;
+    }
+    .img3{
+        margin-left: 35%; 
+        }
+    .img4{
+         margin-left: -35%;
+    }
+ 
+    
+}

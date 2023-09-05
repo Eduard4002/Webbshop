@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+/*
+    containern får display flex
+    text-align: center centrerar texten i boxen
+    margin: 0 auto      för flex item gör så att item centreras i sin box
+    font-weight: bold;      Gör texten  tjock
+*/
+:root{
+    --test: 0;
+}
+.listpoint
+ {
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+ }
+
+.gridcont{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.item{
+    text-align: center;
+}
+.container{
+    display: flex;
+    background-color: #fff;
+    border: 8px #D69696 solid;
+    flex-direction: column;
+    width: 370px;
+    border-radius: 40px;
+    position: relative;
+    height: 400px;
+    transition: all 0.3s ease-in-out;
+    position:relative;
+
+}
+.container:hover .listpoint {
+    height: 100% !important;
+    overflow: visible !important;
+ }
+ .container:hover{
+    height: 500px;
+ }
+.stock{
+    font-size: 30px;
+    right: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+}
+@keyframes example {
+    from{height: 468};
+    to {height: 700};
+  }
+.text{
+    font-family: 'Inter', sans-serif;;
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+}
+.container > img{
+    margin: 0 auto;
+    width: 200px;
+}
+.line{
+    width: 99%;
+    border: 2.5px rgba(131.69, 92.18, 92.18, 0.57) solid;
+}
+/*
+jobba med pos w3schools
+gör text responsiv
+*/
+.prodname{
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    margin: 0 auto;
+    padding: 0;
+    font-weight: 100;
+}
+.price{
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    color: #DD1616;
+    display: inline-block;
+}
+.image{
+    height: 150px;
+}
+/*
+    margin-top: auto; tar upp all tillgänglig plats från top och flyttar element längst ner
+    studera auto margins och inline-block
+*/
+.btncont{
+    text-align: center;
+    margin-top: auto;
+}
+.btncont button{
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    border: none;
+    color: white;
+    background-color: #CB7575;
+    border-radius: 25px;
+    transform: translateY(-50%);
+    transition: 0.2s ease-in-out;
+}
+.btncont button:hover{
+    background-color: #4527A0;
+}
+.btn{
+    position:absolute;
+    bottom:30px;
+    left:140px;
+    width: 50px;
+    margin:auto;
+    transition: 0.2s ease-in-out;
+    
+}
+
+#uli li{
+    margin-top: 20px;
+}
+#uli li::before{
+    display: inline-block;
+    width: 2rem;
+    content: "\2756";
+}
+@media only screen and (max-width: 840px) {
+    .gridcont {
+        grid-template-columns: auto !important;
+    }
+    .container:active .listpoint{
+        height: 100% !important;
+        overflow: visible !important;
+    }
+    .container:active{
+        height: 500px;
+     }
+}
+@media only screen and (max-width: 1200px) {
+    .gridcont {
+        grid-template-columns: auto auto;
+    }
+  }
+
+
+
+
+
+
+
+
+
