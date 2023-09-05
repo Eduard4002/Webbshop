@@ -3,6 +3,6 @@
     $productID = $_POST['productID'];
     $userID = $_POST['userID'];
     removeProductFromCart($userID, $productID);
-    header('location: ../cart.php');
+    header('location: ../Pages/cart.php');
 
 ?>

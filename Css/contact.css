@@ -47,8 +47,11 @@ label{
     border: solid black 5px;
     width: 90%;
 }
+#maps{
+    margin: 30px auto;
+}
 /* Media query for smaller screens */
-@media only screen and (max-width: 710px) {
+@media only screen and (max-width: 1024px) {
     .ContactForm 
     {
         width: 87%;
@@ -60,12 +63,7 @@ label{
     }
     .rev {
         display: grid;
-        padding-top: 40px;
-        position: center;
-        min-height: 20%;
-        text-align: center;
-        text: larger;
-
+        margin:auto ;
       }
   
 }
