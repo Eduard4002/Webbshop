@@ -6,7 +6,6 @@ body{
     overflow-y:scroll;
     overflow-x:hidden;
     width: 100%;
-    
 }
 /* Navbar icons body */
 ul {
@@ -21,7 +20,11 @@ nav {
 
 }
 main{
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+    height: 100%;
+
 }
 /* styling for navbar links */
 nav ul li {
@@ -195,7 +198,7 @@ color: white;
 footer{
     display: flex;
     justify-content: space-around;
-    position: relative; /* Change to fixed */
+    position: absolute; /* Change to fixed */
     bottom: 0; /* Position at the bottom of the viewport */
     width: 100%;
     left: 0%;
@@ -265,11 +268,11 @@ footer{
     align-items: center; /* Center items horizontally */
     display: none;
     position: absolute;
-    top: 20;
     width: 100%;
     height: 100%;
-    background-color: #555;
+    background-color: rgba(41, 41, 41, 0.974);
     z-index: 1000;
+    border-bottom: 3px black solid;
   }
 
   .MobileNav a {

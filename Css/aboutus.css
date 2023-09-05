@@ -1,156 +1,4 @@
-body{
 
-    background-color: #555;
-    margin:0;
-    padding:0;
-    overflow-y:scroll;
-    overflow-x:hidden;
-    width: 100%;
-    
-}
-/* Navbar icons body */
-ul {
-    list-style-type: none;
-}
-
-/*Nav bar body comment on this piece of code for transparent mode*/
-nav {
-
-    background-color: #555;
-    width: 100%;
-
-}
-
-/* styling for navbar links */
-nav ul li {
-    width: 100%;
-}
-/* position for navbar links */
-.navbar-links {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style-type: none;
-    height: 15%;
-    padding: 10px; /* Adds padding to create space inside the box */
-    border-bottom: 2px solid black; /* Adds a border around the box */
-    margin:0;
-}
-
-.icons ul li a img {
-    width: 15%; /* Adjust the width as needed */
-    height: 15%; /* Adjust the height as needed */
-    margin-bottom: 5%;
-}
-
-/* when hover over nav bar icons change color */
-.icons ul li a:hover {
-
-    background-color: #3f3f3f;
-}
-/* This div specific use is styling of the logo */
-.logo{
-   
-    margin-right: 200px;
-    
-}
-/* this code is for the logo styling */
-.logo svg {
-    width: 150px;
-    height: fit-content;
-    margin-left: 15px;
-}
-
-/* This div usage is specific to the icons*/
-
-.icons{
-
-    border-image-width: 50%;
-}
-
-/* Center-align the Font Awesome icons */
-.icons ul li a {
-
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: rgb(255, 255, 255); /* Adjust the color as needed */
-}
-
-
-
-
-button {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; /* Changed to border-box */
-    height: 100%;
-    border: none;
-    font-size: 30px;
-    font-family: Georgia;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: #C99383;
-    color: white;
-}
-
-.PopupWindow ,.LogInWindow, .SignUpWindow {
-    box-sizing: border-box;
-    border-radius: 15px;
-    border: solid black 2px;
-    width: 30%;
-    padding: 20px;
-    text-align: center;
-    float: right;
-    position:absolute;
-    right: 10px;
-    margin-top: 20px;
-    z-index: 10000;
-    background-color: #2b2a2a9c;
-    
-}
-
-
-.Button-container {
-    display: flex;
-    gap: 20px; /* Add space between buttons */
-    align-items: center;
-}
-
-.Button {
-    width: 100%; /* Adjust button width as needed */
-    padding: 10px; /* Padding for spacing within the button */
-    box-sizing: border-box;
-    border: none;
-    background-color: #C99383;
-    color: white;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-align: center; /* Center button text */
-    border-radius: 15px;
-    cursor: pointer;
-    text-decoration: none;
-
-}
-
-.LogInWindow form, .SignUpWindow form , .PopupWindow form {
-    width: 100%; /* Adjust button width as needed */
-     /* Padding for spacing within the button */
-    box-sizing: border-box;
-    border: none;
-    color: black;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-align: center; /* Center button text */
-    border-radius: 15px;
-    cursor: pointer;
-    text-decoration: none;
-    margin:0;
-}
 
 label {
     font-size: 18px;
@@ -244,8 +92,11 @@ margin-right: 30%;
 /*border: 2px solid black;*/
 .person div{
     min-width: 100%;
-}
 
+}
+.person .textcont{
+    padding-left: 30px;
+}
 .textcont{
     display: flex;
     flex-direction: column;
@@ -268,28 +119,8 @@ p{
 .textcontdesc{
     margin-left: auto;
 }
-/*
-footer{
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    left: 0%;
-    right: 0%;
-    min-height: 150px;
-    border: #000000;
-    border-style: solid;
-    background-color: #000000;
-    margin-top: 100%;
-    bottom: -100%;
 
-}
-.right-line {
-    color: #ffffff;
-}
-.left-line {
-    color: #ffffff;
-}
-*/
+
 @media only screen and (max-width: 710px){
     .navbar-links{
         display: none;
@@ -306,8 +137,8 @@ footer{
     .person div{
         display: flex;
         flex-direction:column;
-        min-width: 100%;
-        padding-left: 10%;
+        min-width: 90%;
+        padding-left: 5%;
     }
     p{
         min-width: 100%;
@@ -332,11 +163,6 @@ footer{
     .img4{
          margin-left: -35%;
     }
-    .gus{
-        margin-left: -10%;
-    }
-    .Jon{
-        margin-left: -10%;
-    }
+ 
     
 }

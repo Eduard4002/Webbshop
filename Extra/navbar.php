@@ -7,7 +7,7 @@
                 </div>
                 <li><a href="index.php"><img width = "42" height = "42" src="../Design/Icons/products.svg">Products</a></li>
                 <li><a href="contact.php"><img width = "42" height = "42" src="../Design/Icons/contact.svg">Customer Service</a></li>
-                <li><a href="aboutus.html"><img width = "42" height = "42" src="../Design/Icons/about.svg">About us</a></li>
+                <li><a href="aboutus.php"><img width = "42" height = "42" src="../Design/Icons/about.svg">About us</a></li>
                 <li><a onclick="toggleMainPopup()"><img width = "42" height = "42" src="../Design/Icons/profile.svg">Profile</a></li>
                 <div class="MobilePopup" onclick="MobilePopup()">
                     <div class="Bars">
@@ -42,5 +42,5 @@
             <a href="cart.php"> Shopping Cart </a>
             <a href="index.php"> Products </a>
             <a href="contact.php"> Customer Service </a>
-            <a href="Design/aboutus.html"> About Us </a>
+            <a href="aboutus.php"> About Us </a>
         </div>
