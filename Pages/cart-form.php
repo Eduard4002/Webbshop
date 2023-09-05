@@ -21,7 +21,7 @@ if (!isset($_SESSION)) {
   </div>
   
 <div class="d-flex">
-  <form action="Managers/HtmlToPDFConv/PDFCreate.php" method="POST" id = "order-form">
+  <form action="../Managers/HtmlToPDFConv/PDFCreate.php" method="POST" id = "order-form">
     <label>
       <span class="fname">First Name <span class="required">*</span></span>
       <input type="text" name="fname" required>
