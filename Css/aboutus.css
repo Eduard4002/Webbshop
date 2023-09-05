@@ -119,7 +119,9 @@ p{
 .textcontdesc{
     margin-left: auto;
 }
-
+.a{
+    padding-bottom: 50px;
+}
 
 @media only screen and (max-width: 710px){
     .navbar-links{

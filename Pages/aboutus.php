@@ -34,9 +34,9 @@ if (!isset($_SESSION)) {
             <div class="Ram">
                 <img src = "../Design/profiles/Rami-Agha.JPG" class="img2" alt="Rami Agha; FrontEnd (Designer)" title="Rami-Agha Project Designer">
                 <div class = "textcont">
-                    <h2 style = "color: #38d94e;">Rami-Agha Deigner</h2>
+                    <h2 style = "color: #38d94e;">Rami-Agha GrahicalDesigner</h2>
                     <div class = "textcontdesc">
-                        <p style = "display: block;">Käärija, is the head designer of Retro Tech with many years of experience in the industry</p>
+                        <p style = "display: block;">My first ever project in Web development. Head of FrontEnd/GrahicalDesign for the {Retro-Tech} website using Figma, HTML and CSS.</p>
                         <a href="www.linkedin.com/in/ramiagha888">let's Connect Via linkedin</a>
                 </div>
             </div>
@@ -46,27 +46,23 @@ if (!isset($_SESSION)) {
                     <h2 style = "color: #f02293;">Gustaf-Flädt Programer/Designer</h2>
                     <div class = "textcontdesc">
                         <p style = "display: block;">Front / Backend developer
-                            A developer for the company Retro Tech with experience in both front- and back-end development.
-                        </p>
+                            A developer for the company Retro Tech with experience in both front- and back-end development.</p>
+                            <a href="https://www.linkedin.com/in/gustaf-f%C3%A4ldt-b047a6244/">let's Connect Via linkedin</a>
                     </div>
                 </div>
             </div>
             <div class="Jon">
-                <img src = "../Design/profiles/Eduard-Mihice.jpg" class="img4" alt="Jonathan CS, FrontEnd (Deigner)">
+                <img src = "../Design/profiles/Jonathan_Sjöstedt.jpg" class="img4" title="Jonathan_Sjöstedt, FrontEnd (Deigner)">
                 <div class = "textcont">
-                    <h2 style = "color: #f02236;">Looren, GrahicalDesigner</h2>
+                    <h2 style = "color: #f02236;">Jonathan_Sjöstedt GrahicalDesigner</h2>
                     <div class = "textcontdesc">
-                        <p style = "display: block;">Loreen is the head graphicaldesigner, originally working with pixar with animation in many famous works. Such
-                            as Soul and Encanto.
-
-                        
-                        </p>
+                        <p style = "display: block;">My name is Jonathan and I'm one of the designers/frontend devolopers of the retro tech website. I have experience in Python, Java, Arduino, Javascript, html and css and hopefully more in future.</p>
+                        <a href="http://www.linkedin.com/in/jonathan-cano-sj%C3%B6stedt-58578b28b" class="a">let's Connect Via linkedin</a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
+
         </main>
     </body>
 </html>
