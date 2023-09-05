@@ -44,7 +44,7 @@ if (!isset($_SESSION)) {
                             echo 
                             "
                                 <div id = 'cont' class = 'container'>
-                                <img src = '$filePath'><div class = 'stock'>$stock st</div></img>
+                                <img src = '$filePath' class='image'><div class = 'stock'>$stock st</div></img>
                                 <hr class = 'line'></hr>
                                 <p class = 'prodname'>$name</dp>
                                 <div class = 'price'>$price kr</div>
@@ -109,23 +109,23 @@ if (!isset($_SESSION)) {
                             echo 
                             "
                                 <div id = 'cont' class = 'container' class = 'container'>
-                                <img src = '$filePath'></img>
-                                <hr class = 'line'></hr>
-                                <p class = 'prodname'>$name</dp>
-                                <div class = 'price'>$price kr</div>
-                                
-                                <div style = 'margin-bottom: 2rem;'>
-                                    <ul id = 'uli' class = 'listpoint'>";
-                                    // Create a list point for each line of description
-                                    foreach ($infoLines as $line) {
-                                        if($line != ""){
-                                            echo "<li>$line</li>";
+                                    <img src = '$filePath' class='image'></img>
+                                    <hr class = 'line'></hr>
+                                    <p class = 'prodname'>$name</dp>
+                                    <div class = 'price'>$price kr</div>
+                                    
+                                    <div style = 'margin-bottom: 2rem;'>
+                                        <ul id = 'uli' class = 'listpoint'>";
+                                        // Create a list point for each line of description
+                                        foreach ($infoLines as $line) {
+                                            if($line != ""){
+                                                echo "<li>$line</li>";
+                                            }
                                         }
-                                    }
-                                    echo "   
-                                        
-                                    </ul>
-                                </div>
+                                        echo "   
+                                            
+                                        </ul>
+                                    </div>
                                     <div class = 'btn'>
                                         <div class = 'btncont'>
                                             <form action = '../Managers/productsManager.php' method='post'>
@@ -136,7 +136,6 @@ if (!isset($_SESSION)) {
                                             </form>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             ";
                         }

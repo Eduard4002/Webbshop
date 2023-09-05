@@ -95,6 +95,9 @@ gör text responsiv
     color: #DD1616;
     display: inline-block;
 }
+.image{
+    height: 150px;
+}
 /*
     margin-top: auto; tar upp all tillgänglig plats från top och flyttar element längst ner
     studera auto margins och inline-block
