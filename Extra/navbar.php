@@ -27,13 +27,13 @@
                         $userName = getUserByID($_SESSION['USER']);
                         echo "<h1> Welcome $userName </h1>";
                         echo "
-                        <form action='Managers/userManager.php' method='POST'>
+                        <form action='../Managers/userManager.php' method='POST'>
                             <div>
                                 <button class='LogOutText' type='submit' name='logOut'> Log Out </button>
                             </div>
                         </form> ";
                     } else {
-                        echo "
+                        echo "  
                         <a href='login.php'> Log In </a>
                         <a href='signup.php' > Sign Up </a>
                         ";
